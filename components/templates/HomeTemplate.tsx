@@ -1,5 +1,6 @@
 import Hero from '@components/organisms/Hero';
 import Services from '@components/organisms/Services';
+import CallToAction from '@components/organisms/CallToAction';
 import { supabase, fetchImageById } from '@lib/supabaseClient';
 
 export default async function HomeTemplate({ data }: { data: any }) {
@@ -26,6 +27,7 @@ export default async function HomeTemplate({ data }: { data: any }) {
         image={imageUrl}
       />
       <Services items={services || []} />
+      <CallToAction />
     </>
   );
 }

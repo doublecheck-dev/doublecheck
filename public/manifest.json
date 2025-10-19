@@ -1,0 +1,16 @@
+{
+  "name": "DoubleCheck - Branding y Marketing Digital",
+  "short_name": "DoubleCheck",
+  "description": "Creamos brandings increíbles y estrategias digitales que transforman negocios",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
