@@ -1,7 +1,7 @@
-import Container from '../../atoms/Container';
 import Link from 'next/link';
-import { fetchNavLinks, fetchHeaderSettings } from '../../../lib/supabaseClient';
 import React from 'react';
+import { fetchHeaderSettings, fetchNavLinks } from '../../lib/supabaseClient';
+import Container from '../atoms/Container';
 
 export default async function Header() {
   const navLinks = await fetchNavLinks();

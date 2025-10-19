@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* site-wide utilities */
-html,body,#__next { height: 100%; }
-body { @apply bg-white text-gray-800 antialiased; }
+/* Minimal base resets */
+html, body { height: 100%; }
+* { box-sizing: border-box; }
+body { margin: 0; }

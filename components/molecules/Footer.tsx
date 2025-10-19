@@ -1,4 +1,4 @@
-import Container from '../../atoms/Container';
+import Container from "../atoms/Container";
 
 export default function Footer() {
   return (

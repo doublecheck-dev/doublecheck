@@ -1,6 +1,6 @@
-import Hero from '../organisms/Hero';
-import Services from '../organisms/Services';
-import { supabase, fetchImageById } from '../../lib/supabaseClient';
+import Hero from '@components/organisms/Hero';
+import Services from '@components/organisms/Services';
+import { supabase, fetchImageById } from '@lib/supabaseClient';
 
 export default async function HomeTemplate({ data }: { data: any }) {
   const { data: services } = await supabase.from('services').select('*').order('id');
@@ -20,7 +20,11 @@ export default async function HomeTemplate({ data }: { data: any }) {
 
   return (
     <>
-      <Hero heading={heroSettings?.heading} subheading={heroSettings?.subheading} image={imageUrl} />
+      <Hero
+        heading={heroSettings?.heading}
+        subheading={heroSettings?.subheading}
+        image={imageUrl}
+      />
       <Services items={services || []} />
     </>
   );
