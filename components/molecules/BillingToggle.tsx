@@ -7,13 +7,13 @@ interface BillingToggleProps {
 
 export default function BillingToggle({ billingPeriod, onToggle }: BillingToggleProps) {
   return (
-    <div className="flex items-center justify-center mt-8 bg-white rounded-2xl p-2 shadow-lg max-w-md mx-auto border border-gray-100">
+    <div className="flex items-center justify-center mt-8 glass rounded-2xl p-2 shadow-glow max-w-md mx-auto border border-white/30">
       <button
         onClick={() => onToggle('monthly')}
         className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
           billingPeriod === 'monthly'
-            ? 'bg-gradient-to-r from-green-600 to-green-600 text-white shadow-lg scale-105'
-            : 'text-secondary-700 hover:text-green-600 hover:bg-gray-50'
+            ? 'bg-gradient-cosmic text-white shadow-glow scale-105'
+            : 'text-white/80 hover:text-white hover:glass'
         }`}
       >
         <span className="relative z-10 flex items-center space-x-2">
@@ -29,14 +29,14 @@ export default function BillingToggle({ billingPeriod, onToggle }: BillingToggle
         onClick={() => onToggle('annually')}
         className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 relative overflow-hidden ${
           billingPeriod === 'annually'
-            ? 'bg-gradient-to-r from-green-600 to-green-600 text-white shadow-lg scale-105'
-            : 'text-secondary-700 hover:text-green-600 hover:bg-gray-50'
+            ? 'bg-gradient-cosmic text-white shadow-glow scale-105'
+            : 'text-white/80 hover:text-white hover:glass'
         }`}
       >
         <span className="relative z-10 flex items-center space-x-2">
           <span>💰</span>
           <span>Anual</span>
-          <span className="ml-2 text-xs bg-green-600 text-white px-3 py-1 rounded-full animate-pulse border border-green-700">
+          <span className="ml-2 text-caption glass text-white px-3 py-1 rounded-full animate-pulse-soft border border-white/30">
             -20%
           </span>
         </span>

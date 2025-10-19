@@ -173,22 +173,30 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
           </div>
         </AnimatedSection>
 
-        {/* CTA Section */}
+        {/* Modern CTA Section */}
         <AnimatedSection animation="fadeInUp" delay={800}>
-          <div className="mt-16 text-center bg-gradient-to-r from-accent-700 to-green-600 rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              ¿Listo para trabajar con nosotros?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Nuestro equipo está esperando para hacer realidad tu visión digital.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-accent-600 font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
-                Conocer Más
-              </button>
-              <button className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-accent-600 transition-all duration-300">
-                Contactar Equipo
-              </button>
+          <div className="mt-20 text-center bg-gradient-mesh rounded-3xl p-12 md:p-16 text-white relative overflow-hidden shadow-strong">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0">
+              <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-float"></div>
+              <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/15 rounded-full blur-xl animate-float-delayed"></div>
+            </div>
+            
+            <div className="relative z-10">
+              <h3 className="text-heading-1 font-bold mb-6">
+                ¿Listo para trabajar con <span className="text-gradient-cosmic bg-white bg-clip-text">nosotros</span>?
+              </h3>
+              <p className="text-body-large mb-10 opacity-90 max-w-2xl mx-auto">
+                Nuestro equipo está esperando para hacer realidad tu visión digital y transformar tu marca.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <button className="glass text-white font-bold px-10 py-5 rounded-2xl hover:shadow-glow-hover hover:scale-105 transition-all duration-300 border border-white/20">
+                  Conocer Más
+                </button>
+                <button className="bg-white text-purple-700 font-bold px-10 py-5 rounded-2xl hover:shadow-strong hover:scale-105 transition-all duration-300">
+                  Contactar Equipo
+                </button>
+              </div>
             </div>
           </div>
         </AnimatedSection>

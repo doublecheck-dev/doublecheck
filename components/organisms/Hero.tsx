@@ -34,9 +34,16 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
   const currentHeading = heading || heroTexts[currentTextIndex];
 
   return (
-    <section className="relative min-h-screen flex items-center py-24 bg-gradient-to-br from-primary-800 via-primary-900 to-accent-800 text-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center py-24 bg-gradient-mesh overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-800/95 to-accent-800/95"></div>
+      <div className="absolute inset-0 bg-gradient-animated opacity-90"></div>
+      
+      {/* Floating geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-cosmic rounded-3xl opacity-20 animate-float blur-sm"></div>
+        <div className="absolute bottom-40 right-20 w-24 h-24 bg-gradient-sunset rounded-full opacity-30 animate-float-delayed blur-sm"></div>
+        <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-ocean rounded-2xl opacity-25 animate-bounce blur-sm"></div>
+      </div>
       
       {/* Subtle logo watermark */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
@@ -53,15 +60,15 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
       </div>
       
       {/* Floating particles */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(15)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-2 h-2 bg-white/10 rounded-full animate-pulse"
+          className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse shadow-glow"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${2 + Math.random() * 2}s`
+            animationDuration: `${3 + Math.random() * 2}s`
           }}
         />
       ))}
@@ -70,35 +77,35 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <AnimatedSection animation="fadeInLeft">
-              <div className="space-y-6">
-                {/* Dynamic heading with typing effect */}
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                  <span className={`inline-block transition-all duration-500 ${isTyping ? 'opacity-100' : 'opacity-50'}`}>
+              <div className="space-y-8">
+                {/* Dynamic heading with modern typography */}
+                <h1 className="text-display-1 font-bold leading-tight text-white">
+                  <span className={`inline-block transition-all duration-700 ${isTyping ? 'opacity-100 transform-none' : 'opacity-70 transform scale-95'}`}>
                     {currentHeading}
                   </span>
                   {!heading && (
-                    <span className="animate-pulse text-accent-100">|</span>
+                    <span className="animate-pulse text-white/80 ml-2">|</span>
                   )}
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-blue-50 leading-relaxed max-w-2xl font-medium">
+                <p className="text-body-large text-white/90 leading-relaxed max-w-2xl font-medium">
                   {subheading || "En un mundo saturado de imágenes, creamos un espacio único para tu marca, asegurándonos de que no solo sea reconocida, sino que también deje una huella imborrable."}
                 </p>
               </div>
             </AnimatedSection>
             
             <AnimatedSection animation="fadeInUp" delay={300}>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <Button 
                   variant="primary" 
-                  className="bg-gradient-to-r from-accent-700 to-accent-800 text-white hover:from-accent-800 hover:to-accent-900 font-semibold px-8 py-4 text-lg hover:shadow-2xl hover:scale-105 border border-accent-800"
+                  className="bg-gradient-cosmic text-white hover:shadow-glow-hover font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-strong"
                   icon={<span>🚀</span>}
                 >
                   Crear Branding
                 </Button>
                 <Button 
                   variant="secondary" 
-                  className="border-2 border-white text-white hover:bg-accent-800 hover:border-accent-800 font-semibold px-8 py-4 text-lg"
+                  className="glass border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300"
                   icon={<span>→</span>}
                   iconPosition="right"
                 >
@@ -107,53 +114,54 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
               </div>
             </AnimatedSection>
 
-            {/* Trust indicators */}
+            {/* Trust indicators with modern design */}
             <AnimatedSection animation="fadeInUp" delay={600}>
-              <div className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/20">
-                <div className="flex items-center space-x-2">
-                  <span className="text-3xl">⭐</span>
+              <div className="flex flex-wrap items-center gap-8 pt-8 border-t border-white/20">
+                <div className="flex items-center space-x-3 glass-card px-4 py-3 rounded-2xl">
+                  <span className="text-2xl">⭐</span>
                   <div>
-                    <div className="text-sm font-semibold">5.0 Rating</div>
-                    <div className="text-xs text-blue-200">+100 Clientes</div>
+                    <div className="text-sm font-semibold text-white">5.0 Rating</div>
+                    <div className="text-xs text-white/70">+100 Clientes</div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-3xl">🏆</span>
+                <div className="flex items-center space-x-3 glass-card px-4 py-3 rounded-2xl">
+                  <span className="text-2xl">🏆</span>
                   <div>
-                    <div className="text-sm font-semibold">Certificados</div>
-                    <div className="text-xs text-blue-200">Google & Meta</div>
+                    <div className="text-sm font-semibold text-white">Certificados</div>
+                    <div className="text-xs text-white/70">Google & Meta</div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <span className="text-3xl">⚡</span>
+                <div className="flex items-center space-x-3 glass-card px-4 py-3 rounded-2xl">
+                  <span className="text-2xl">⚡</span>
                   <div>
-                    <div className="text-sm font-semibold">Entrega Rápida</div>
-                    <div className="text-xs text-blue-200">7-14 días</div>
+                    <div className="text-sm font-semibold text-white">Entrega Rápida</div>
+                    <div className="text-xs text-white/70">7-14 días</div>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
           </div>
           
-          {/* Hero image with enhanced effects */}
+          {/* Hero image with enhanced glassmorphic effects */}
           {image && (
             <AnimatedSection animation="fadeInRight" delay={400}>
               <div className="flex justify-center relative">
                 <div className="relative w-full max-w-lg h-[500px] group">
-                  {/* Decorative elements */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-accent-600 to-primary-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                  {/* Enhanced decorative elements */}
+                  <div className="absolute -inset-6 bg-gradient-cosmic rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-all duration-700 animate-glow-pulse"></div>
+                  <div className="absolute -inset-4 bg-gradient-sunset rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
                   
                   <Image
                     src={image}
                     alt={heading ?? 'DoubleCheck Hero'}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="rounded-2xl shadow-2xl object-cover ring-4 ring-white/20 group-hover:ring-white/40 transition-all duration-500 relative z-10"
+                    className="rounded-3xl shadow-strong object-cover glass group-hover:scale-105 transition-all duration-700 relative z-10"
                     priority
                   />
                   
-                  {/* Floating badge */}
-                  <div className="absolute -top-4 -right-4 bg-success text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce z-20">
+                  {/* Modern floating badge */}
+                  <div className="absolute -top-6 -right-6 bg-gradient-sunset text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-strong animate-bounce-in z-20 glass">
                     ¡Nuevo!
                   </div>
                 </div>

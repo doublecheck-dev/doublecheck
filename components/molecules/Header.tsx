@@ -10,26 +10,27 @@ export default async function Header() {
   const headerSettings = await fetchHeaderSettings();
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50 shadow-sm" role="banner">
+    <header className="glass backdrop-blur-xl border-b border-white/20 sticky top-0 z-50 shadow-soft" role="banner">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link 
             href="/" 
-            className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg p-1"
+            className="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 rounded-lg p-1"
             aria-label="DoubleCheck - Inicio"
           >
-            <div className="relative w-16 h-16 group-hover:scale-110 transition-transform duration-200">
+            <div className="relative w-16 h-16 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#94CE10] to-[#557215] rounded-2xl blur-sm opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
               <Image
-                src="/logo.png"
+                src="/LogoName.svg"
                 alt="DoubleCheck Logo"
                 fill
                 sizes="64px"
-                className="object-contain"
+                className="object-contain relative z-10"
                 priority
               />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary-800 to-accent-800 bg-clip-text text-transparent">
-              DoubleCheck
+            <span className="text-2xl font-bold">
+              <span className="text-slate-800">Double</span><span className="text-[#94CE10]">Check</span>
             </span>
           </Link>
           
@@ -40,10 +41,10 @@ export default async function Header() {
                 href={link.url || '#'} 
                 target={link.open_in_new_tab ? '_blank' : undefined}
                 rel={link.open_in_new_tab ? 'noopener noreferrer' : undefined}
-                className="text-secondary-700 hover:text-accent-800 font-medium transition-colors duration-200 relative group focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 rounded px-2 py-1"
+                className="text-slate-700 hover:text-[#557215] font-medium transition-all duration-300 relative group focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 rounded-lg px-3 py-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-accent-800 to-green-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-[#94CE10] to-[#557215] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
               </Link>
             ))}
           </nav>
@@ -52,7 +53,7 @@ export default async function Header() {
             {headerSettings?.show_cta && headerSettings?.cta_text && (
               <Link 
                 href={headerSettings.cta_url || '/signup'} 
-                className="hidden sm:inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-accent-800 to-green-700 text-white font-semibold hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 transition-all duration-200 border border-accent-900"
+                className="hidden sm:inline-flex items-center px-8 py-3 rounded-2xl bg-gradient-to-r from-[#94CE10] to-[#557215] text-white font-semibold hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 transition-all duration-300 shadow-md hover:from-[#557215] hover:to-[#94CE10]"
               >
                 {headerSettings.cta_text}
               </Link>

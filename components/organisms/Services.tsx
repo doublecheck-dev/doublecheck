@@ -61,18 +61,24 @@ export default function Services({ items }: { items: Array<any> }) {
   const servicesToShow = enhancedServices.length > 0 ? enhancedServices : items;
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100" id="servicios">
-      <Container>
-        <AnimatedSection animation="fadeInUp" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
-            Lo Que Ofrecemos
+    <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-purple-50 relative overflow-hidden" id="servicios">
+      {/* Modern background decorations */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-cosmic rounded-full opacity-5 blur-3xl animate-float"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-ocean rounded-full opacity-8 blur-3xl animate-float-delayed"></div>
+      </div>
+      
+      <Container className="relative z-10">
+        <AnimatedSection animation="fadeInUp" className="text-center mb-20">
+          <h2 className="text-heading-1 font-bold text-slate-900 mb-6">
+            Lo Que <span className="text-gradient-cosmic">Ofrecemos</span>
           </h2>
-          <p className="text-xl text-secondary-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-body-large text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Establece una presencia online impactante, mejora tu identidad visual o eleva tu marca a través del marketing en redes sociales.
           </p>
           
-          {/* Decorative line */}
-          <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-accent-600 mx-auto mt-8 rounded-full" />
+          {/* Modern decorative line */}
+          <div className="w-32 h-1 bg-gradient-cosmic mx-auto mt-8 rounded-full shadow-glow" />
         </AnimatedSection>
         
         <Suspense fallback={<SkeletonServices />}>
@@ -89,17 +95,17 @@ export default function Services({ items }: { items: Array<any> }) {
           </div>
         </Suspense>
         
-        {/* Call to action section */}
-        <AnimatedSection animation="fadeInUp" delay={600} className="text-center mt-16">
-          <p className="text-lg text-secondary-600 mb-8">
+        {/* Modern call to action section */}
+        <AnimatedSection animation="fadeInUp" delay={600} className="text-center mt-20">
+          <p className="text-lg text-slate-600 mb-8 font-medium">
             ¿No encuentras exactamente lo que buscas?
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-700 to-green-600 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent-300"
+            className="inline-flex items-center px-10 py-5 bg-gradient-cosmic text-white font-semibold rounded-2xl hover:shadow-glow-hover hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 shadow-strong"
           >
             Solicitar Consulta Personalizada
-            <span className="ml-2">→</span>
+            <span className="ml-3 transform transition-transform group-hover:translate-x-1">→</span>
           </a>
         </AnimatedSection>
       </Container>
