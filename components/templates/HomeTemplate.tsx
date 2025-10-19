@@ -1,0 +1,27 @@
+import Hero from '../organisms/Hero';
+import Services from '../organisms/Services';
+import { supabase, fetchImageById } from '../../lib/supabaseClient';
+
+export default async function HomeTemplate({ data }: { data: any }) {
+  const { data: services } = await supabase.from('services').select('*').order('id');
+  const heroSection = (data?.sections || []).find((s: any) => s.type === 'hero');
+  const heroSettings = heroSection ? heroSection.settings : {};
+
+  // Resolve image id -> url
+  let imageUrl: string | undefined = heroSettings?.background_image_url;
+  if (!imageUrl && heroSettings?.background_image_id) {
+    try {
+      const img = await fetchImageById(heroSettings.background_image_id);
+      if (img?.url) imageUrl = img.url;
+    } catch (err) {
+      // ignore resolution errors (fallback to undefined)
+    }
+  }
+
+  return (
+    <>
+      <Hero heading={heroSettings?.heading} subheading={heroSettings?.subheading} image={imageUrl} />
+      <Services items={services || []} />
+    </>
+  );
+}
