@@ -1,5 +1,27 @@
 BEGIN;
 
+-- Clear existing data first
+TRUNCATE TABLE 
+  contact_submissions,
+  content_blocks,
+  page_sections,
+  blog_posts,
+  case_studies,
+  testimonials,
+  partners,
+  collaborators,
+  plans,
+  services,
+  nav_links,
+  pages,
+  footer_settings,
+  header_settings,
+  site_settings,
+  contact_infos,
+  social_networks,
+  images
+RESTART IDENTITY CASCADE;
+
 -- Images
 INSERT INTO images (id, url, alt, caption) VALUES
   ('10000000-0000-0000-0000-000000000001'::uuid,'https://doublecheck.com.co/assets/logo.png','DoubleCheck logo',''),
@@ -54,18 +76,21 @@ VALUES
   ('40000000-0000-0000-0000-000000000004'::uuid,'Contact','/contact', NULL, 4);
 
 -- Services master rows
-INSERT INTO services (id, title, slug, description, icon_image_id)
+INSERT INTO services (id, title, slug, description, icon_image_id, metadata)
 VALUES
-  ('20000000-0000-0000-0000-000000000001'::uuid,'Verification API','verification-api','Real-time data verification API','10000000-0000-0000-0000-000000000011'::uuid),
-  ('20000000-0000-0000-0000-000000000002'::uuid,'Monitoring','monitoring','Continuous monitoring and alerts','10000000-0000-0000-0000-000000000012'::uuid),
-  ('20000000-0000-0000-0000-000000000003'::uuid,'Reporting','reporting','Automated reports and insights','10000000-0000-0000-0000-000000000013'::uuid);
+  ('20000000-0000-0000-0000-000000000001'::uuid,'Diseño Web','diseno-web','Creamos sitios web visualmente impresionantes y fáciles de usar, utilizando diseño y tecnología moderna.','10000000-0000-0000-0000-000000000011'::uuid, '{"features":["Diseño responsivo y mobile-first","Optimización SEO avanzada","Velocidad de carga superior","Integración con analytics","Soporte técnico continuo"]}'::jsonb),
+  ('20000000-0000-0000-0000-000000000002'::uuid,'Diseño de Branding','diseno-branding','El diseño de branding establece una identidad única y memorable para tu negocio a través de logotipos, colores y elementos visuales.','10000000-0000-0000-0000-000000000012'::uuid, '{"features":["Investigación de marca completa","Logo y identidad visual","Guía de marca detallada","Aplicaciones multimedia","Estrategia de posicionamiento"]}'::jsonb),
+  ('20000000-0000-0000-0000-000000000003'::uuid,'Fábrica de Software','fabrica-software','Convertimos tus ideas en realidad creando soluciones de software personalizadas, fáciles de usar y escalables.','10000000-0000-0000-0000-000000000013'::uuid, '{"features":["Desarrollo a medida","Arquitectura escalable","Metodologías ágiles","Testing automatizado","Mantenimiento continuo"]}'::jsonb),
+  ('20000000-0000-0000-0000-000000000004'::uuid,'Marketing Digital','marketing-digital','Impulsa tu negocio con estrategias innovadoras de marketing digital, incluyendo SEO, redes sociales y soluciones personalizadas.','10000000-0000-0000-0000-000000000011'::uuid, '{"features":["Estrategias SEO/SEM","Gestión de redes sociales","Campañas de email marketing","Analítica y reporting","Publicidad digital"]}'::jsonb);
 
 -- Plans master rows
-INSERT INTO plans (id, title, slug, price, currency, billing_interval, features, cta_text, cta_url, rank)
+INSERT INTO plans (id, title, slug, price, currency, billing_interval, features, cta_text, cta_url, rank, metadata)
 VALUES
-  ('30000000-0000-0000-0000-000000000001'::uuid,'Starter','starter',19.00,'USD','monthly','["100 checks / month","Email support"]'::jsonb,'Start free trial','/signup?plan=starter',1),
-  ('30000000-0000-0000-0000-000000000002'::uuid,'Pro','pro',79.00,'USD','monthly','["1,000 checks / month","Priority support","Team seats"]'::jsonb,'Start 14-day trial','/signup?plan=pro',2),
-  ('30000000-0000-0000-0000-000000000003'::uuid,'Enterprise','enterprise',499.00,'USD','monthly','["Unlimited checks","SLA & onboarding","Dedicated support"]'::jsonb,'Contact sales','/contact',3);
+  ('30000000-0000-0000-0000-000000000001'::uuid,'PREMIUM','premium',1200000,'COP','monthly','["Campaña de anuncios","Estrategia de Contenidos SEO","Optimización de conversiones","Analítica Básica","Redes Sociales","Publicidad Puntos Turísticos","Email Marketing","Integraciones","SEO on Page + Auditoría","Contenido Magnético","Account Manager"]'::jsonb,'Comprar','/contact?plan=premium',1, '{"description":"Empieza a tener presencia digital y escalar tu negocio","subtitle":"Perfecto para emprendedores y empresas con presupuesto reducido. Incluye ppto de campañas básico","popular":false}'::jsonb),
+  ('30000000-0000-0000-0000-000000000002'::uuid,'MOST POPULAR','most-popular',2000000,'COP','monthly','["Campaña de anuncios","Estrategia de Contenidos SEO","Optimización de conversiones","Analítica Básica","Redes Sociales","Publicidad Puntos Turísticos","Email Marketing","Integraciones","SEO on Page + Auditoría","Contenido Magnético","Account Manager"]'::jsonb,'Comprar','/contact?plan=most-popular',2, '{"description":"Escalabilidad y visibilidad de tu negocio en puntos turísticos de la ciudad","subtitle":"Perfecto para emprendedores y empresas con presupuesto reducido y cuyo nicho de mercado es el turismo. Incluye ppto de campañas básico","popular":true}'::jsonb),
+  ('30000000-0000-0000-0000-000000000003'::uuid,'DIGITAL','digital',1500000,'COP','monthly','["Campaña de anuncios","Estrategia de Contenidos SEO","Optimización de conversiones","Analítica Básica","Redes Sociales","Publicidad Puntos Turísticos","Email Marketing","Integraciones","SEO on Page + Auditoría","Contenido Magnético","Account Manager"]'::jsonb,'Comprar','/contact?plan=digital',3, '{"description":"El mejor plan para atraer y fidelizar más clientes y generar Base de datos.","subtitle":"Este plan es perfecto para websites con no más de 5 servicios y tiendas online de menos de 100 productos. Incluye ppto de campañas básico","popular":false}'::jsonb),
+  ('30000000-0000-0000-0000-000000000004'::uuid,'DIGITAL PRO','digital-pro',2500000,'COP','monthly','["Campaña de anuncios","Estrategia de Contenidos SEO","Optimización de conversiones","Analítica Avanzada","Redes Sociales","Publicidad Puntos Turísticos","Email Marketing","Integraciones","SEO on Page + Auditoría","Contenido Magnético","Account Manager"]'::jsonb,'Comprar','/contact?plan=digital-pro',4, '{"description":"Una estrategia que impacta tus resultados digitales a gran escala","subtitle":"Este plan es perfecto para educar, atraer, convertir y retener a tus clientes a lo largo de su ciclo de compra. Incluye ppto de campañas básico","popular":false}'::jsonb),
+  ('30000000-0000-0000-0000-000000000005'::uuid,'DIGITAL PRO MAX','digital-pro-max',3500000,'COP','monthly','["Campaña de anuncios","Estrategia de Contenidos SEO","Optimización de conversiones","Analítica Básica","Redes Sociales","Publicidad Puntos Turísticos","Email Marketing","Integraciones","SEO on Page + Auditoría","Contenido Magnético","Account Manager","Landing Page estática"]'::jsonb,'Comprar','/contact?plan=digital-pro-max',5, '{"description":"Ideal para emprendedores que no cuentan con página web y quiere maximizar sus resultados","subtitle":"Alto impacto para retener clientes a lo largo de su ciclo de compra al mismo tiempo que expone su marca. Incluye ppto de campañas básico","popular":false}'::jsonb);
 
 -- Page sections for Home page
 INSERT INTO page_sections (id, page_id, type, settings, position)
@@ -144,38 +169,74 @@ INSERT INTO collaborators (id, full_name, role, bio, photo_image_id, social_link
 VALUES
   (
     'a1000000-0000-0000-0000-000000000001'::uuid,
-    'María Gómez',
-    'Head of Risk',
-    'Responsable de estrategias antifraude y gestión de riesgo. 10+ años en fintech y bancos.',
+    'Carlos Rodríguez',
+    'CEO & Founder',
+    'Experto en transformación digital con más de 8 años creando soluciones innovadoras para empresas.',
     '10000000-0000-0000-0000-000000000031'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/maria-gomez"},{"network":"Twitter","url":"https://twitter.com/maria_gomez"}]'::jsonb,
-    '["Fraud detection","Risk modeling","Data pipelines"]'::jsonb,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/carlos-rodriguez"}]'::jsonb,
+    '["Liderazgo","Estrategia","Innovación"]'::jsonb,
     true,
     1,
     'es'
   ),
   (
     'a1000000-0000-0000-0000-000000000002'::uuid,
-    'Juan Pérez',
-    'CTO',
-    'Arquitecto de plataformas y responsable de la infraestructura de verificación en tiempo real.',
+    'María Fernández',
+    'Creative Director',
+    'Diseñadora con pasión por crear identidades visuales memorables que conectan marcas con audiencias.',
     '10000000-0000-0000-0000-000000000032'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/juan-perez"}]'::jsonb,
-    '["Backend","APIs","Scalability"]'::jsonb,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/maria-fernandez"}]'::jsonb,
+    '["Branding","UI/UX","Creatividad"]'::jsonb,
     true,
     2,
     'es'
   ),
   (
     'a1000000-0000-0000-0000-000000000003'::uuid,
-    'Ana Ruiz',
-    'Product Lead',
-    'Lidera el producto y la experiencia de usuario, enfocada en integraciones y adopción.',
+    'Andrés López',
+    'CTO',
+    'Ingeniero Full-Stack especializado en crear soluciones web escalables y de alto rendimiento.',
     '10000000-0000-0000-0000-000000000033'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/ana-ruiz"}]'::jsonb,
-    '["Product","UX","Integrations"]'::jsonb,
-    false,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/andres-lopez"}]'::jsonb,
+    '["Full-Stack","DevOps","Architecture"]'::jsonb,
+    true,
     3,
+    'es'
+  ),
+  (
+    'a1000000-0000-0000-0000-000000000004'::uuid,
+    'Laura Sánchez',
+    'Marketing Manager',
+    'Especialista en campañas digitales que generan resultados medibles y ROI positivo.',
+    '10000000-0000-0000-0000-000000000031'::uuid,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/laura-sanchez"}]'::jsonb,
+    '["SEO/SEM","Analytics","Growth"]'::jsonb,
+    true,
+    4,
+    'es'
+  ),
+  (
+    'a1000000-0000-0000-0000-000000000005'::uuid,
+    'Diego Martínez',
+    'UX/UI Designer',
+    'Diseñador centrado en el usuario, creando interfaces intuitivas y experiencias excepcionales.',
+    '10000000-0000-0000-0000-000000000032'::uuid,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/diego-martinez"}]'::jsonb,
+    '["UX Research","Prototyping","Design Systems"]'::jsonb,
+    true,
+    5,
+    'es'
+  ),
+  (
+    'a1000000-0000-0000-0000-000000000006'::uuid,
+    'Ana Gutiérrez',
+    'Account Manager',
+    'Especialista en construir relaciones duraderas y exitosas con nuestros clientes.',
+    '10000000-0000-0000-0000-000000000033'::uuid,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/in/ana-gutierrez"}]'::jsonb,
+    '["Comunicación","Gestión","Customer Success"]'::jsonb,
+    true,
+    6,
     'es'
   );
 

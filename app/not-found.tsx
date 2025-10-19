@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from '../components/atoms/Container';
 import Button from '../components/atoms/Button';
 
@@ -19,6 +20,19 @@ export default function NotFound() {
 
           {/* Content */}
           <div className="space-y-4">
+            {/* Small logo above error message */}
+            <div className="flex justify-center mb-6">
+              <div className="relative w-24 h-24 opacity-50">
+                <Image
+                  src="/logo.png"
+                  alt="DoubleCheck Logo"
+                  fill
+                  sizes="96px"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold text-secondary-900">
               ¡Oops! Página no encontrada
             </h2>

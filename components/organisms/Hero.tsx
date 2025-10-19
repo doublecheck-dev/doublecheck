@@ -34,9 +34,23 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
   const currentHeading = heading || heroTexts[currentTextIndex];
 
   return (
-    <section className="relative min-h-screen flex items-center py-24 bg-gradient-to-br from-primary-600 via-primary-700 to-accent-600 text-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center py-24 bg-gradient-to-br from-primary-800 via-primary-900 to-accent-800 text-white overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-accent-600/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-800/95 to-accent-800/95"></div>
+      
+      {/* Subtle logo watermark */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+        <div className="relative w-[28rem] h-[28rem]">
+          <Image
+            src="/logo.png"
+            alt=""
+            fill
+            sizes="448px"
+            className="object-contain"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
       
       {/* Floating particles */}
       {[...Array(20)].map((_, i) => (
@@ -63,11 +77,11 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
                     {currentHeading}
                   </span>
                   {!heading && (
-                    <span className="animate-pulse text-accent-300">|</span>
+                    <span className="animate-pulse text-accent-100">|</span>
                   )}
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-blue-100 leading-relaxed max-w-2xl">
+                <p className="text-xl md:text-2xl text-blue-50 leading-relaxed max-w-2xl font-medium">
                   {subheading || "En un mundo saturado de imágenes, creamos un espacio único para tu marca, asegurándonos de que no solo sea reconocida, sino que también deje una huella imborrable."}
                 </p>
               </div>
@@ -77,14 +91,14 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   variant="primary" 
-                  className="bg-white text-primary-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg group-hover:shadow-2xl"
+                  className="bg-gradient-to-r from-accent-700 to-accent-800 text-white hover:from-accent-800 hover:to-accent-900 font-semibold px-8 py-4 text-lg hover:shadow-2xl hover:scale-105 border border-accent-800"
                   icon={<span>🚀</span>}
                 >
                   Crear Branding
                 </Button>
                 <Button 
                   variant="secondary" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold px-8 py-4 text-lg"
+                  className="border-2 border-white text-white hover:bg-accent-800 hover:border-accent-800 font-semibold px-8 py-4 text-lg"
                   icon={<span>→</span>}
                   iconPosition="right"
                 >
@@ -127,7 +141,7 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
               <div className="flex justify-center relative">
                 <div className="relative w-full max-w-lg h-[500px] group">
                   {/* Decorative elements */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-accent-400 to-primary-400 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-4 bg-gradient-to-r from-accent-600 to-primary-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                   
                   <Image
                     src={image}

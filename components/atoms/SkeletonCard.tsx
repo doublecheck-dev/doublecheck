@@ -19,7 +19,7 @@ export default function SkeletonCard({ className = '' }: { className?: string })
 
 export function SkeletonServices() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header skeleton */}
         <div className="text-center mb-16">

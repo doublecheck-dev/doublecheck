@@ -61,7 +61,7 @@ export default function Services({ items }: { items: Array<any> }) {
   const servicesToShow = enhancedServices.length > 0 ? enhancedServices : items;
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50" id="servicios">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100" id="servicios">
       <Container>
         <AnimatedSection animation="fadeInUp" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
@@ -72,7 +72,7 @@ export default function Services({ items }: { items: Array<any> }) {
           </p>
           
           {/* Decorative line */}
-          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mt-8 rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-accent-600 mx-auto mt-8 rounded-full" />
         </AnimatedSection>
         
         <Suspense fallback={<SkeletonServices />}>
@@ -96,7 +96,7 @@ export default function Services({ items }: { items: Array<any> }) {
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-700 to-green-600 text-white font-semibold rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-accent-300"
           >
             Solicitar Consulta Personalizada
             <span className="ml-2">→</span>

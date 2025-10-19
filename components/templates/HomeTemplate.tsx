@@ -1,10 +1,23 @@
 import Hero from '@components/organisms/Hero';
 import Services from '@components/organisms/Services';
+import PricingPlans from '@components/organisms/PricingPlans';
+import TeamCollaborators from '@components/organisms/TeamCollaborators';
+import ContactSection from '@components/organisms/ContactSection';
 import CallToAction from '@components/organisms/CallToAction';
-import { supabase, fetchImageById } from '@lib/supabaseClient';
+import { supabase, fetchImageById, fetchPlans, fetchCollaborators } from '@lib/supabaseClient';
 
 export default async function HomeTemplate({ data }: { data: any }) {
-  const { data: services } = await supabase.from('services').select('*').order('id');
+  // Fetch all data in parallel
+  const [
+    { data: services },
+    plans,
+    collaborators
+  ] = await Promise.all([
+    supabase.from('services').select('*').order('id'),
+    fetchPlans(),
+    fetchCollaborators()
+  ]);
+
   const heroSection = (data?.sections || []).find((s: any) => s.type === 'hero');
   const heroSettings = heroSection ? heroSection.settings : {};
 
@@ -27,6 +40,9 @@ export default async function HomeTemplate({ data }: { data: any }) {
         image={imageUrl}
       />
       <Services items={services || []} />
+      <PricingPlans plans={plans || []} />
+      <TeamCollaborators collaborators={collaborators || []} />
+      <ContactSection />
       <CallToAction />
     </>
   );

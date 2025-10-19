@@ -34,7 +34,7 @@ export const metadata = {
     title: 'DoubleCheck - Branding y Marketing Digital',
     description: 'Creamos brandings increíbles y estrategias digitales que transforman negocios',
     images: [{
-      url: '/og-image.jpg',
+      url: '/logo.png',
       width: 1200,
       height: 630,
       alt: 'DoubleCheck - Branding y Marketing Digital'

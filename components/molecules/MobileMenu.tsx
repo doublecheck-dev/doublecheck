@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface MobileMenuProps {
   navLinks: Array<{ id: string; label: string; url: string; open_in_new_tab?: boolean }>;
@@ -83,17 +84,23 @@ export default function MobileMenu({ navLinks, headerSettings }: MobileMenuProps
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-accent-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">DC</span>
+            <div className="flex items-center space-x-3">
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/logo.png"
+                  alt="DoubleCheck Logo"
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                />
               </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+              <span className="text-lg font-bold bg-gradient-to-r from-primary-800 to-accent-800 bg-clip-text text-transparent">
                 DoubleCheck
               </span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500"
               aria-label="Cerrar menú"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +116,7 @@ export default function MobileMenu({ navLinks, headerSettings }: MobileMenuProps
                 key={link.id}
                 href={link.url || '#'}
                 target={link.open_in_new_tab ? '_blank' : undefined}
-                className="block px-4 py-3 text-secondary-700 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors font-medium"
+                className="block px-4 py-3 text-secondary-800 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-colors font-medium"
                 onClick={() => setIsOpen(false)}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
@@ -123,7 +130,7 @@ export default function MobileMenu({ navLinks, headerSettings }: MobileMenuProps
             <div className="p-6 border-t">
               <Link
                 href={headerSettings.cta_url || '/signup'}
-                className="block w-full text-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold hover:shadow-lg transition-all"
+                className="block w-full text-center px-6 py-3 rounded-lg bg-gradient-to-r from-primary-700 to-accent-700 text-white font-semibold hover:shadow-lg transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 {headerSettings.cta_text}

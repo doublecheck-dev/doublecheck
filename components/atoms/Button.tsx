@@ -25,9 +25,9 @@ export default function Button({
   const baseClasses = 'group relative inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none';
   
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-primary-700 focus:ring-primary-300 shadow-lg hover:shadow-xl active:scale-95',
-    secondary: 'bg-transparent border-2 border-current text-current hover:bg-current hover:text-white focus:ring-primary-300 active:scale-95',
-    accent: 'bg-accent text-white hover:bg-accent-600 focus:ring-accent-300 shadow-lg hover:shadow-xl active:scale-95'
+    primary: 'bg-primary text-white hover:bg-primary-800 focus:ring-primary-300 shadow-lg hover:shadow-xl active:scale-95 border border-primary-700',
+    secondary: 'bg-transparent border-2 border-secondary-700 text-secondary-800 hover:bg-secondary-800 hover:text-white focus:ring-secondary-300 active:scale-95',
+    accent: 'bg-green-600 text-white hover:bg-accent-800 focus:ring-accent-300 shadow-lg hover:shadow-xl active:scale-95 border border-accent-800'
   };
 
   const handleMouseDown = () => setIsPressed(true);

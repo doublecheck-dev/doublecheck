@@ -44,7 +44,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       }}
     >
       {/* Background gradient overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-500/5 rounded-2xl transition-opacity duration-500 ${
+      <div className={`absolute inset-0 bg-gradient-to-br from-primary-600/10 to-accent-600/10 rounded-2xl transition-opacity duration-500 ${
         isHovered ? 'opacity-100' : 'opacity-0'
       }`} />
       
@@ -67,7 +67,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       
       <div className="relative z-10">
         {/* Service icon */}
-        <div className={`w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
+        <div className={`w-16 h-16 bg-gradient-to-br from-primary-600 to-accent-600 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
           isHovered ? 'scale-110 rotate-6' : ''
         }`}>
           <span className="text-2xl" role="img" aria-hidden="true">
@@ -83,7 +83,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         </h3>
         
         {/* Service description */}
-        <p className="text-secondary-600 leading-relaxed mb-6">
+        <p className="text-secondary-700 leading-relaxed mb-6 font-medium">
           {service.description}
         </p>
         
@@ -93,11 +93,11 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
             isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
           }`}>
             <div className="border-t border-gray-100 pt-4 mb-4">
-              <h4 className="font-semibold text-secondary-800 mb-3">Características:</h4>
+              <h4 className="font-semibold text-secondary-900 mb-3">Características:</h4>
               <ul className="space-y-2">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start text-sm text-secondary-600">
-                    <span className="text-primary-500 mr-2 mt-1">✓</span>
+                  <li key={idx} className="flex items-start text-sm text-secondary-700 font-medium">
+                    <span className="text-primary-600 mr-2 mt-1">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -120,7 +120,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
           {service.features && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="px-4 py-2 text-sm text-primary-600 hover:text-primary-700 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg"
+              className="px-4 py-2 text-sm text-primary-700 hover:text-primary-800 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded-lg"
               aria-expanded={isExpanded}
               aria-label={isExpanded ? 'Ocultar características' : 'Ver características'}
             >
@@ -130,13 +130,13 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         </div>
         
         {/* Bottom accent line */}
-        <div className={`absolute bottom-8 left-8 right-8 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full transition-all duration-500 ${
+        <div className={`absolute bottom-8 left-8 right-8 h-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full transition-all duration-500 ${
           isHovered ? 'scale-x-100' : 'scale-x-0'
         }`} />
       </div>
       
       {/* Corner decoration */}
-      <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-accent-100 to-transparent rounded-bl-full transition-all duration-500 ${
+      <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-accent-200 to-transparent rounded-bl-full transition-all duration-500 ${
         isHovered ? 'scale-150' : 'scale-100'
       }`} />
     </article>

@@ -1,5 +1,6 @@
 import Container from '../components/atoms/Container';
 import LoadingSpinner from '../components/atoms/LoadingSpinner';
+import Image from 'next/image';
 
 export default function Loading() {
   return (
@@ -8,8 +9,15 @@ export default function Loading() {
         <div className="text-center space-y-8 text-white">
           {/* Logo animation */}
           <div className="flex justify-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-white/20 to-white/40 rounded-2xl flex items-center justify-center animate-pulse">
-              <span className="text-3xl font-bold text-white">DC</span>
+            <div className="relative w-32 h-32 animate-pulse">
+              <Image
+                src="/logo.png"
+                alt="DoubleCheck Logo"
+                fill
+                sizes="128px"
+                className="object-contain filter brightness-0 invert"
+                priority
+              />
             </div>
           </div>
 

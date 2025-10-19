@@ -220,6 +220,20 @@ CREATE TABLE IF NOT EXISTS collaborators (
   updated_at timestamptz
 );
 
+-- Contact form submissions
+CREATE TABLE IF NOT EXISTS contact_submissions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  email text NOT NULL,
+  company text,
+  service text,
+  message text NOT NULL,
+  status text DEFAULT 'new', -- 'new', 'read', 'replied', 'closed'
+  metadata jsonb DEFAULT '{}'::jsonb,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz
+);
+
 -- Indexes for common queries
 CREATE INDEX IF NOT EXISTS idx_pages_locale ON pages(locale);
 CREATE INDEX IF NOT EXISTS idx_sections_page ON page_sections(page_id);
@@ -233,3 +247,5 @@ CREATE INDEX IF NOT EXISTS idx_blog_posts_slug ON blog_posts(slug);
 CREATE INDEX IF NOT EXISTS idx_case_studies_slug ON case_studies(slug);
 CREATE INDEX IF NOT EXISTS idx_collaborators_order ON collaborators("order");
 CREATE INDEX IF NOT EXISTS idx_collaborators_locale ON collaborators(locale);
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_status ON contact_submissions(status);
+CREATE INDEX IF NOT EXISTS idx_contact_submissions_created ON contact_submissions(created_at);

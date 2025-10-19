@@ -78,3 +78,66 @@ export async function fetchImageById(id: string | null) {
   if (error) throw error;
   return data || null;
 }
+
+// Fetch all pricing plans
+export async function fetchPlans() {
+  const { data, error } = await supabase
+    .from('plans')
+    .select('*')
+    .order('rank');
+
+  if (error) throw error;
+  return data || [];
+}
+
+// Fetch all team members/collaborators
+export async function fetchCollaborators() {
+  const { data, error } = await supabase
+    .from('collaborators')
+    .select('*')
+    .eq('featured', true)
+    .order('"order"');
+
+  if (error) throw error;
+  return data || [];
+}
+
+// Fetch all services with metadata
+export async function fetchServices() {
+  const { data, error } = await supabase
+    .from('services')
+    .select('*')
+    .order('id');
+
+  if (error) throw error;
+  return data || [];
+}
+
+// Submit contact form
+export async function submitContactForm(formData: {
+  name: string;
+  email: string;
+  company?: string;
+  service?: string;
+  message: string;
+}) {
+  const { data, error } = await supabase
+    .from('contact_submissions')
+    .insert([formData])
+    .select()
+    .single();
+
+  if (error) throw error;
+  return data;
+}
+
+// Fetch contact info
+export async function fetchContactInfo() {
+  const { data, error } = await supabase
+    .from('site_settings')
+    .select('contact_email, contact_phone, address')
+    .single();
+
+  if (error) console.error('Error fetching contact info:', error);
+  return data || null;
+}
