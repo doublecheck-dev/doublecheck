@@ -33,9 +33,9 @@ export default function Footer() {
                   <span className="text-white">Double</span><span className="text-[#94CE10]">Check</span>
                 </span>
               </div>
-              <p className="text-lg text-white/90 leading-relaxed max-w-md font-medium mb-8 transition-colors duration-300 hover:text-white">
+              {/* <p className="text-lg text-white/90 leading-relaxed max-w-md font-medium mb-8 transition-colors duration-300 hover:text-white">
                 ¡Permítenos transformar tu visión en una identidad poderosa e inolvidable que impulse el crecimiento y te destaque del resto!
-              </p>
+              </p> */}
               <div className="flex space-x-6">
                 <a href="https://linkedin.com/" className="group relative">
                   <div className="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-2xl flex items-center justify-center hover:bg-white/20 hover:shadow-lg transition-all duration-500 transform hover:scale-110 hover:-translate-y-1 border border-white/20 relative overflow-hidden">

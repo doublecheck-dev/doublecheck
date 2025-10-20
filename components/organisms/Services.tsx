@@ -1,4 +1,6 @@
-import { Suspense } from 'react';
+'use client';
+
+import { Suspense, useState } from 'react';
 import Container from "../atoms/Container";
 import AnimatedSection from "../atoms/AnimatedSection";
 import ServiceCard from "../molecules/ServiceCard";
@@ -59,6 +61,13 @@ const enhancedServices = [
 export default function Services({ items }: { items: Array<any> }) {
   // Use enhanced services if available, fallback to provided items
   const servicesToShow = enhancedServices.length > 0 ? enhancedServices : items;
+  
+  // Global expanded state - when one card expands, all expand
+  const [areAllExpanded, setAreAllExpanded] = useState(false);
+
+  const handleToggleExpanded = () => {
+    setAreAllExpanded(!areAllExpanded);
+  };
 
   return (
     <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-purple-50 relative overflow-hidden" id="servicios">
@@ -89,7 +98,12 @@ export default function Services({ items }: { items: Array<any> }) {
                 animation="slideInUp"
                 delay={index * 150}
               >
-                <ServiceCard service={service} index={index} />
+                <ServiceCard 
+                  service={service} 
+                  index={index}
+                  isExpanded={areAllExpanded}
+                  onToggleExpanded={handleToggleExpanded}
+                />
               </AnimatedSection>
             ))}
           </div>

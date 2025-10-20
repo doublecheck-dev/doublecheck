@@ -13,11 +13,11 @@ export default async function BlogPage() {
           {posts.map((p: any) => (
             <article key={p.id} className="p-6 border border-gray-300 rounded-md bg-white shadow-sm hover:shadow-md transition-shadow">
               <h2 className="text-xl font-semibold">
-                <Link href={`/blog/${p.slug}`} className="text-secondary-900 hover:text-green-600 hover:underline transition-colors">{p.title}</Link>
+                <Link href={`/blog/${p.slug}`} className="text-secondary-900 hover:text-accent-700 hover:underline transition-colors">{p.title}</Link>
               </h2>
               <p className="text-sm text-secondary-700 mt-2">{p.excerpt}</p>
               <div className="mt-3 text-sm">
-                <Link href={`/blog/${p.slug}`} className="text-green-600 hover:text-accent-800 hover:underline font-medium transition-colors">Read more →</Link>
+                <Link href={`/blog/${p.slug}`} className="text-accent-700 hover:text-accent-800 hover:underline font-medium transition-colors">Read more →</Link>
               </div>
             </article>
           ))}

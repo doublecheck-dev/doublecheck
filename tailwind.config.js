@@ -82,6 +82,15 @@ module.exports = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         'doublecheck-gradient': 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
+        'gradient-aurora': 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #d946ef 50%, #ec4899 75%, #ef4444 100%)',
+        'gradient-sunset': 'linear-gradient(135deg, #f97316 0%, #f59e0b 50%, #eab308 100%)',
+        'gradient-ocean': 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%)',
+        'gradient-forest': 'linear-gradient(135deg, #16a34a 0%, #15803d 50%, #166534 100%)',
+        'gradient-emerald': 'linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)',
+        'gradient-purple': 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%)',
+      },
+      animation: {
+        'pulse-soft': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     }
   },

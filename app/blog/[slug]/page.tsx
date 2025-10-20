@@ -24,7 +24,7 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="max-w-3xl">
           <h1 className="text-3xl font-bold mb-4 text-secondary-900">{post.title}</h1>
           <p className="text-sm text-secondary-700 mb-6 font-medium">{post.published_at ? new Date(post.published_at).toLocaleDateString() : ''}</p>
-          <div className="prose prose-secondary max-w-none prose-headings:text-secondary-900 prose-p:text-secondary-800 prose-a:text-green-600 hover:prose-a:text-accent-800 prose-strong:text-secondary-900" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="prose prose-secondary max-w-none prose-headings:text-secondary-900 prose-p:text-secondary-800 prose-a:text-accent-700 hover:prose-a:text-accent-800 prose-strong:text-secondary-900" dangerouslySetInnerHTML={{ __html: html }} />
         </article>
       </Container>
     </main>
