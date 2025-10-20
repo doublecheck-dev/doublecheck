@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Container from '@components/atoms/Container';
 import Button from '@components/atoms/Button';
 import AnimatedSection from '@components/atoms/AnimatedSection';
+import { WHATSAPP_CONFIG } from '@components/atoms/WhatsAppConfig';
 
 const heroTexts = [
   "Branding increíbles",
@@ -30,6 +31,11 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
       return () => clearInterval(interval);
     }
   }, [heading]);
+
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = WHATSAPP_CONFIG.getWhatsAppUrl();
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
 
   const currentHeading = heading || heroTexts[currentTextIndex];
   const heroImage = '/illustrations/chatbot-hero.svg';
@@ -98,11 +104,11 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
             <AnimatedSection animation="fadeInUp" delay={300}>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button 
-                  variant="primary" 
-                  className="bg-gradient-brand text-white hover:shadow-brand-glow-hover font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-brand-glow"
-                  icon={<span>🚀</span>}
+                  variant="secondary"
+                  onClick={handleWhatsAppClick}
+                  className="glass border-2 border-[#94CE10]/40 text-white hover:bg-[#94CE10]/10 font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Crear Branding
+                  Adquirir chatbot
                 </Button>
                 <Button 
                   variant="secondary" 
@@ -122,7 +128,7 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
                   <span className="text-2xl">⭐</span>
                   <div>
                     <div className="text-sm font-semibold text-white">5.0 Rating</div>
-                    <div className="text-xs text-white/70">+100 Clientes</div>
+                    <div className="text-xs text-white/70">Clientes Satisfechos</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 glass-card px-4 py-3 rounded-2xl">

@@ -3,10 +3,15 @@
 import { useState } from 'react';
 import Container from "@components/atoms/Container";
 import Button from "@components/atoms/Button";
-import WhatsAppCTA from "@components/organisms/WhatsAppCTA";
+import { WHATSAPP_CONFIG } from "@components/atoms/WhatsAppConfig";
 
 export default function CallToAction() {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = WHATSAPP_CONFIG.getWhatsAppUrl();
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section 
@@ -81,13 +86,15 @@ export default function CallToAction() {
                 Sobre Nosotros
               </Button>
               <div className="w-full sm:w-auto">
-                <WhatsAppCTA 
-                  variant="secondary" 
-                  text="Contáctanos por WhatsApp"
-                  className={`transition-all duration-300 hover:scale-105 ${
-                    isHovered ? 'scale-105' : ''
+                <Button 
+                  variant="secondary"
+                  onClick={handleWhatsAppClick}
+                  className={`bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 font-semibold px-10 py-5 text-lg shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105 ${
+                  isHovered ? 'scale-105 shadow-cyan-500/40' : ''
                   }`}
-                />
+                >
+                  Contáctanos por WhatsApp
+                </Button>
               </div>
             </div>
             
