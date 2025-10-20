@@ -19,7 +19,7 @@ export default async function Header() {
             aria-label="DoubleCheck - Inicio"
           >
             <div className="relative w-16 h-16 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#94CE10] to-[#557215] rounded-2xl blur-sm opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Image
                 src="/LogoName.svg"
                 alt="DoubleCheck Logo"
@@ -53,7 +53,7 @@ export default async function Header() {
             {headerSettings?.show_cta && headerSettings?.cta_text && (
               <Link 
                 href={headerSettings.cta_url || '/signup'} 
-                className="hidden sm:inline-flex items-center px-8 py-3 rounded-2xl bg-gradient-to-r from-[#94CE10] to-[#557215] text-white font-semibold hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 transition-all duration-300 shadow-md hover:from-[#557215] hover:to-[#94CE10]"
+                className="hidden sm:inline-flex items-center px-8 py-3 rounded-2xl glass border border-white/30 text-slate-900 hover:text-slate-900 font-semibold hover:bg-white/40 hover:shadow-glow-hover hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 transition-all duration-300"
               >
                 {headerSettings.cta_text}
               </Link>

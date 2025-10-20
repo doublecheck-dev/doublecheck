@@ -1,0 +1,166 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Reliable gradients -->
+    <radialGradient id="bgGradient" cx="0.4" cy="0.3" r="1.2">
+      <stop offset="0%" style="stop-color:#94CE10;stop-opacity:0.15"/>
+      <stop offset="60%" style="stop-color:#557215;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.03"/>
+    </radialGradient>
+    
+    <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#94CE10"/>
+      <stop offset="50%" style="stop-color:#7fb50d"/>
+      <stop offset="100%" style="stop-color:#557215"/>
+    </linearGradient>
+    
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f1f5f9"/>
+    </linearGradient>
+    
+    <!-- Reliable filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.1)"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="500" fill="url(#bgGradient)"/>
+  
+  <!-- Floating elements -->
+  <circle cx="80" cy="120" r="30" fill="#94CE10" opacity="0.1">
+    <animate attributeName="cy" values="120;100;120" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="380" y="350" width="50" height="50" rx="10" fill="#557215" opacity="0.08" transform="rotate(15 405 375)">
+    <animateTransform attributeName="transform" type="rotate" values="15 405 375;25 405 375;15 405 375" dur="8s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Title with better contrast -->
+  <text x="250" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#0f172a">
+    Asistente ChatBot
+  </text>
+  <text x="250" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" text-anchor="middle" fill="#374151">
+    Inteligencia Artificial Avanzada
+  </text>
+  
+  <!-- Modern iPhone - MUCH BIGGER -->
+  <g transform="translate(260, 120)">
+    <!-- Phone shadow -->
+    <rect x="4" y="8" width="160" height="280" rx="36" fill="rgba(0,0,0,0.15)" filter="url(#shadow)"/>
+    
+    <!-- iPhone body -->
+    <rect x="0" y="0" width="160" height="280" rx="36" fill="url(#phoneGradient)" filter="url(#shadow)"/>
+    <rect x="6" y="6" width="148" height="268" rx="30" fill="#000000"/>
+    
+    <!-- Screen -->
+    <rect x="12" y="25" width="136" height="230" rx="22" fill="#ffffff"/>
+    
+    <!-- Dynamic Island -->
+    <rect x="54" y="10" width="52" height="12" rx="6" fill="#1a1a1a"/>
+    
+    <!-- Chat interface -->
+    <g transform="translate(20, 50)">
+      <!-- Header -->
+      <rect x="0" y="0" width="120" height="35" rx="8" fill="#94CE10" opacity="0.15"/>
+      <text x="60" y="24" font-family="system-ui" font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">ChatBot AI</text>
+      
+      <!-- Chat bubbles -->
+      <g transform="translate(0, 45)">
+        <!-- User message -->
+        <rect x="35" y="0" width="75" height="28" rx="14" fill="#94CE10"/>
+        <text x="72" y="18" font-family="system-ui" font-size="11" font-weight="600" text-anchor="middle" fill="white">¡Hola! 👋</text>
+        
+        <!-- Bot response -->
+        <rect x="10" y="35" width="95" height="28" rx="14" fill="#f8fafc" stroke="#94CE10" stroke-width="1"/>
+        <text x="57" y="53" font-family="system-ui" font-size="10" font-weight="500" text-anchor="middle" fill="#0f172a">¿Cómo puedo ayudarte?</text>
+        
+        <!-- User message -->
+        <rect x="20" y="70" width="90" height="28" rx="14" fill="#94CE10"/>
+        <text x="65" y="88" font-family="system-ui" font-size="10" font-weight="600" text-anchor="middle" fill="white">Información de servicios</text>
+        
+        <!-- Typing indicator -->
+        <rect x="10" y="105" width="70" height="24" rx="12" fill="#f1f5f9" stroke="#94CE10" stroke-width="1"/>
+        <text x="18" y="119" font-family="system-ui" font-size="8" font-weight="500" fill="#0f172a">AI escribiendo</text>
+        <circle cx="75" cy="117" r="2.5" fill="#94CE10" opacity="0.8">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="85" cy="117" r="2.5" fill="#94CE10" opacity="0.8">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" begin="0.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="95" cy="117" r="2.5" fill="#94CE10" opacity="0.8">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+    
+    <!-- Input field -->
+    <rect x="18" y="235" width="124" height="22" rx="11" fill="#ffffff" stroke="#94CE10" stroke-width="1"/>
+    <text x="26" y="248" font-family="system-ui" font-size="10" font-weight="400" fill="#6b7280">Escribe tu mensaje...</text>
+    <circle cx="130" cy="246" r="8" fill="#94CE10"/>
+    <text x="130" y="250" font-family="system-ui" font-size="11" font-weight="bold" text-anchor="middle" fill="white">→</text>
+  </g>
+  
+  <!-- Modern robot -->
+  <g transform="translate(120, 180)">
+    <!-- Robot body -->
+    <rect x="0" y="40" width="100" height="120" rx="20" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.95"/>
+    <rect x="3" y="43" width="94" height="114" rx="17" fill="rgba(255,255,255,0.1)"/>
+    
+    <!-- Robot head -->
+    <rect x="15" y="0" width="70" height="60" rx="15" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.95"/>
+    <rect x="18" y="3" width="64" height="54" rx="12" fill="rgba(255,255,255,0.1)"/>
+    
+    <!-- Eyes -->
+    <circle cx="35" cy="25" r="8" fill="#ffffff" filter="url(#glow)"/>
+    <circle cx="65" cy="25" r="8" fill="#ffffff" filter="url(#glow)"/>
+    <circle cx="35" cy="25" r="5" fill="#94CE10">
+      <animate attributeName="r" values="5;6;5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="65" cy="25" r="5" fill="#94CE10">
+      <animate attributeName="r" values="5;6;5" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Interface panel -->
+    <rect x="20" y="60" width="60" height="40" rx="8" fill="rgba(255,255,255,0.2)"/>
+    <rect x="25" y="68" width="50" height="3" rx="1.5" fill="#ffffff" opacity="0.6"/>
+    <rect x="25" y="75" width="35" height="3" rx="1.5" fill="#ffffff" opacity="0.4"/>
+    <rect x="25" y="82" width="45" height="3" rx="1.5" fill="#ffffff" opacity="0.5"/>
+    <rect x="25" y="89" width="25" height="3" rx="1.5" fill="#94CE10" opacity="0.8"/>
+    
+    <!-- Arms -->
+    <rect x="-15" y="70" width="15" height="25" rx="7" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.9"/>
+    <rect x="100" y="70" width="15" height="25" rx="7" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.9"/>
+    
+    <!-- Hand indicators -->
+    <circle cx="-7" cy="82" r="6" fill="#94CE10" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="107" cy="82" r="6" fill="#94CE10" opacity="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connection line -->
+  <path d="M220 240 Q240 235 260 230" stroke="url(#robotGradient)" stroke-width="4" fill="none" opacity="0.7" stroke-dasharray="15,8">
+    <animate attributeName="stroke-dashoffset" values="0;23" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Floating particles -->
+  <circle cx="60" cy="280" r="8" fill="#94CE10" opacity="0.3">
+    <animate attributeName="cy" values="280;260;280" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="440" cy="300" r="6" fill="#557215" opacity="0.25">
+    <animate attributeName="cy" values="300;320;300" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.5;0.15" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -32,11 +32,12 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
   }, [heading]);
 
   const currentHeading = heading || heroTexts[currentTextIndex];
+  const heroImage = '/illustrations/chatbot-hero.svg';
 
   return (
-    <section className="relative min-h-screen flex items-center py-24 bg-gradient-mesh overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 bg-gradient-animated opacity-90"></div>
+    <section className="relative min-h-screen flex items-center py-24 bg-gradient-mesh-brand overflow-hidden">
+  {/* Animated background elements - brand palette with lower opacity */}
+  <div className="absolute inset-0 bg-gradient-animated-brand opacity-40"></div>
       
       {/* Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -98,14 +99,14 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button 
                   variant="primary" 
-                  className="bg-gradient-cosmic text-white hover:shadow-glow-hover font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-strong"
+                  className="bg-gradient-brand text-white hover:shadow-brand-glow-hover font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-brand-glow"
                   icon={<span>🚀</span>}
                 >
                   Crear Branding
                 </Button>
                 <Button 
                   variant="secondary" 
-                  className="glass border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300"
+                  className="glass border-2 border-[#94CE10]/40 text-white hover:bg-[#94CE10]/10 font-semibold px-10 py-5 text-lg rounded-2xl transform hover:scale-105 transition-all duration-300"
                   icon={<span>→</span>}
                   iconPosition="right"
                 >
@@ -143,25 +144,27 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
           </div>
           
           {/* Hero image with enhanced glassmorphic effects */}
-          {image && (
+          {heroImage && (
             <AnimatedSection animation="fadeInRight" delay={400}>
               <div className="flex justify-center relative">
                 <div className="relative w-full max-w-lg h-[500px] group">
-                  {/* Enhanced decorative elements */}
-                  <div className="absolute -inset-6 bg-gradient-cosmic rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-all duration-700 animate-glow-pulse"></div>
-                  <div className="absolute -inset-4 bg-gradient-sunset rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
+                  {/* Enhanced decorative elements (brand) */}
+                  <div className="absolute -inset-6 bg-gradient-brand rounded-3xl blur-2xl opacity-25 group-hover:opacity-45 transition-all duration-700 animate-glow-pulse"></div>
+                  <div className="absolute -inset-4 bg-gradient-brand-soft rounded-3xl blur-xl opacity-20 group-hover:opacity-35 transition-all duration-500"></div>
                   
-                  <Image
-                    src={image}
-                    alt={heading ?? 'DoubleCheck Hero'}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="rounded-3xl shadow-strong object-cover glass group-hover:scale-105 transition-all duration-700 relative z-10"
-                    priority
-                  />
+                  {/* Consistent picture element for both cases */}
+                  <picture className="absolute inset-0 rounded-3xl overflow-hidden z-10">
+                    
+                    <img
+                      src={heroImage}
+                      alt={heading ?? 'DoubleCheck Hero'}
+                      className="w-full h-full object-cover rounded-3xl glass group-hover:scale-105 transition-all duration-700"
+                      loading="eager"
+                    />
+                  </picture>
                   
                   {/* Modern floating badge */}
-                  <div className="absolute -top-6 -right-6 bg-gradient-sunset text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-strong animate-bounce-in z-20 glass">
+                  <div className="absolute -top-6 -right-6 bg-gradient-brand text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-brand-glow animate-bounce-in z-20 glass">
                     ¡Nuevo!
                   </div>
                 </div>
