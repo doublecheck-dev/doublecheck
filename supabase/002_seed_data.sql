@@ -71,9 +71,9 @@ VALUES
 INSERT INTO nav_links (id, label, url, page_id, "order")
 VALUES
   ('40000000-0000-0000-0000-000000000001'::uuid,'Home','/', '11111111-1111-1111-1111-111111111111'::uuid, 1),
-  ('40000000-0000-0000-0000-000000000002'::uuid,'Services','/services','22222222-2222-2222-2222-222222222222'::uuid, 2),
-  ('40000000-0000-0000-0000-000000000003'::uuid,'Pricing','/pricing','33333333-3333-3333-3333-333333333333'::uuid, 3),
-  ('40000000-0000-0000-0000-000000000004'::uuid,'Contact','/contact', NULL, 4);
+  ('40000000-0000-0000-0000-000000000002'::uuid,'Servicios','/services','22222222-2222-2222-2222-222222222222'::uuid, 2),
+  ('40000000-0000-0000-0000-000000000003'::uuid,'Planes','/pricing','33333333-3333-3333-3333-333333333333'::uuid, 3),
+  ('40000000-0000-0000-0000-000000000004'::uuid,'Contactanos','/contact', NULL, 4);
 
 -- Services master rows
 INSERT INTO services (id, title, slug, description, icon_image_id, metadata)
@@ -96,7 +96,7 @@ VALUES
 INSERT INTO page_sections (id, page_id, type, settings, position)
 VALUES
   ('50000000-0000-0000-0000-000000000001'::uuid,'11111111-1111-1111-1111-111111111111'::uuid,'hero',
-    ('{"heading":"Fast, reliable verification","subheading":"Protect your business with DoubleCheck","background_image_id":"10000000-0000-0000-0000-000000000002"}')::jsonb, 0),
+    ('{"heading":"Rápido, inteligente y confiable","subheading":"Adquiere tu própio asistente personal","background_image_id":"10000000-0000-0000-0000-000000000002"}')::jsonb, 0),
   ('50000000-0000-0000-0000-000000000002'::uuid,'11111111-1111-1111-1111-111111111111'::uuid,'services',
     ('{"columns":3,"title":"What we offer"}')::jsonb, 1),
   ('50000000-0000-0000-0000-000000000003'::uuid,'11111111-1111-1111-1111-111111111111'::uuid,'plans',
@@ -169,9 +169,9 @@ INSERT INTO collaborators (id, full_name, role, bio, photo_image_id, social_link
 VALUES
   (
     'a1000000-0000-0000-0000-000000000001'::uuid,
-    'Carlos Rodríguez',
-    'CEO & Founder',
-    'Experto en transformación digital con más de 8 años creando soluciones innovadoras para empresas.',
+    'Oscar Montoya',
+    'Arquitecto de soluciones & Co-Founder',
+    'Experto en transformación digital con más de 20 años creando soluciones innovadoras para empresas.',
     '10000000-0000-0000-0000-000000000031'::uuid,
     '[{"network":"LinkedIn","url":"https://linkedin.com/in/carlos-rodriguez"}]'::jsonb,
     '["Liderazgo","Estrategia","Innovación"]'::jsonb,
@@ -181,11 +181,11 @@ VALUES
   ),
   (
     'a1000000-0000-0000-0000-000000000002'::uuid,
-    'María Fernández',
-    'Creative Director',
-    'Diseñadora con pasión por crear identidades visuales memorables que conectan marcas con audiencias.',
+    'Saul Gómez',
+    'Director Técnico & Co-Founder',
+    'Líder tecnológico con más de 10 años de experiencia desarrollando productos digitales escalables y dirigiendo equipos de alto rendimiento.',
     '10000000-0000-0000-0000-000000000032'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/maria-fernandez"}]'::jsonb,
+    '[{"network":"LinkedIn","url":"https://www.linkedin.com/in/saul-gomez-webui-frontend-react/"}]'::jsonb,
     '["Branding","UI/UX","Creatividad"]'::jsonb,
     true,
     2,
@@ -193,11 +193,11 @@ VALUES
   ),
   (
     'a1000000-0000-0000-0000-000000000003'::uuid,
-    'Andrés López',
-    'CTO',
-    'Ingeniero Full-Stack especializado en crear soluciones web escalables y de alto rendimiento.',
+    'Carlos Orrego',
+    'CEO & Co-Founder',
+    'Visionario empresarial con amplia experiencia en desarrollo de negocios y estrategias comerciales que impulsan el crecimiento sostenible.',
     '10000000-0000-0000-0000-000000000033'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/andres-lopez"}]'::jsonb,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/"}]'::jsonb,
     '["Full-Stack","DevOps","Architecture"]'::jsonb,
     true,
     3,
@@ -205,38 +205,14 @@ VALUES
   ),
   (
     'a1000000-0000-0000-0000-000000000004'::uuid,
-    'Laura Sánchez',
-    'Marketing Manager',
-    'Especialista en campañas digitales que generan resultados medibles y ROI positivo.',
+    'Fernanda Zuleta',
+    'Marketing Manager  & Co-Founder',
+    'Experta en marketing digital y estrategias de crecimiento, especializada en construir marcas sólidas y campañas efectivas que conectan con las audiencias.',
     '10000000-0000-0000-0000-000000000031'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/laura-sanchez"}]'::jsonb,
+    '[{"network":"LinkedIn","url":"https://linkedin.com/"}]'::jsonb,
     '["SEO/SEM","Analytics","Growth"]'::jsonb,
     true,
     4,
-    'es'
-  ),
-  (
-    'a1000000-0000-0000-0000-000000000005'::uuid,
-    'Diego Martínez',
-    'UX/UI Designer',
-    'Diseñador centrado en el usuario, creando interfaces intuitivas y experiencias excepcionales.',
-    '10000000-0000-0000-0000-000000000032'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/diego-martinez"}]'::jsonb,
-    '["UX Research","Prototyping","Design Systems"]'::jsonb,
-    true,
-    5,
-    'es'
-  ),
-  (
-    'a1000000-0000-0000-0000-000000000006'::uuid,
-    'Ana Gutiérrez',
-    'Account Manager',
-    'Especialista en construir relaciones duraderas y exitosas con nuestros clientes.',
-    '10000000-0000-0000-0000-000000000033'::uuid,
-    '[{"network":"LinkedIn","url":"https://linkedin.com/in/ana-gutierrez"}]'::jsonb,
-    '["Comunicación","Gestión","Customer Success"]'::jsonb,
-    true,
-    6,
     'es'
   );
 
