@@ -2,6 +2,7 @@
 
 import Button from '@components/atoms/Button';
 import AnimatedSection from '@components/atoms/AnimatedSection';
+import WhatsAppButton from '@components/molecules/WhatsAppButton';
 
 export default function PricingFooter() {
   return (
@@ -28,25 +29,19 @@ export default function PricingFooter() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-              <Button 
-                variant="primary"
-                className="glass-bright text-white font-bold px-10 py-4 text-body-large hover:shadow-glow-hover hover:scale-105 transition-all duration-300 shadow-glow border border-white/30"
-              >
-                <span className="flex items-center space-x-2">
-                  <span>📞</span>
-                  <span>Solicitar Cotización</span>
-                </span>
-              </Button>
+              <WhatsAppButton 
+                variant="compact"
+                className="inline-flex items-center gap-3 glass-bright text-white font-bold px-10 py-4 text-body-large hover:shadow-glow-hover hover:scale-105 transition-all duration-300 shadow-glow border border-white/30"
+                text="Solicitar Cotización"
+                customIcon="📞"
+              />
               
-              <Button 
-                variant="secondary"
-                className="glass border-2 border-white/30 text-white font-bold px-10 py-4 text-body-large hover:bg-gradient-cosmic hover:scale-105 transition-all duration-300"
-              >
-                <span className="flex items-center space-x-2">
-                  <span>💬</span>
-                  <span>Hablar con un Experto</span>
-                </span>
-              </Button>
+              <WhatsAppButton 
+                variant="compact"
+                className="inline-flex items-center gap-3 glass border-2 border-white/30 text-white font-bold px-10 py-4 text-body-large hover:bg-gradient-cosmic hover:scale-105 transition-all duration-300"
+                text="Hablar con un Experto"
+                customIcon="💬"
+              />
             </div>
 
             {/* Modern benefits grid */}

@@ -10,6 +10,7 @@ interface WhatsAppButtonProps {
   isPulsing?: boolean;
   text?: string;
   showArrow?: boolean;
+  customIcon?: string;
 }
 
 export default function WhatsAppButton({ 
@@ -20,7 +21,8 @@ export default function WhatsAppButton({
   isHovered = false,
   isPulsing = false,
   text,
-  showArrow = false
+  showArrow = false,
+  customIcon
 }: WhatsAppButtonProps) {
   const whatsappUrl = WHATSAPP_CONFIG.getWhatsAppUrl();
 
@@ -114,7 +116,11 @@ export default function WhatsAppButton({
         className={className || `inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/40 hover:scale-105 group transform-gpu`}
         aria-label="Contactar por WhatsApp"
       >
-        <WhatsAppIcon className={className ? "w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" : "w-4 h-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"} />
+        {customIcon ? (
+          <span className="text-lg">{customIcon}</span>
+        ) : (
+          <WhatsAppIcon className={className ? "w-5 h-5 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" : "w-4 h-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300"} />
+        )}
         <span className={className ? "group-hover:tracking-wide transition-all duration-300" : "text-sm"}>
           {text || 'WhatsApp'}
         </span>

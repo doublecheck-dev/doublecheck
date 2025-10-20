@@ -1,13 +1,54 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchHeaderSettings, fetchNavLinks } from '../../lib/supabaseClient';
 import Container from '../atoms/Container';
 import MobileMenu from './MobileMenu';
+import WhatsAppButton from './WhatsAppButton';
 
-export default async function Header() {
-  const navLinks = await fetchNavLinks();
-  const headerSettings = await fetchHeaderSettings();
+export default function Header() {
+  const [navLinks, setNavLinks] = useState<any[]>([]);
+  const [headerSettings, setHeaderSettings] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadHeaderData() {
+      try {
+        const [linksData, settingsData] = await Promise.all([
+          fetchNavLinks(),
+          fetchHeaderSettings()
+        ]);
+        setNavLinks(linksData);
+        setHeaderSettings(settingsData);
+      } catch (error) {
+        console.error('Error loading header data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadHeaderData();
+  }, []);
+
+  if (loading) {
+    return (
+      <header className="glass backdrop-blur-xl border-b border-white/20 sticky top-0 z-50 shadow-soft" role="banner">
+        <Container>
+          <div className="flex items-center justify-between py-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl animate-pulse"></div>
+              <div className="w-32 h-8 bg-white/10 rounded animate-pulse"></div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="w-24 h-10 bg-white/10 rounded-2xl animate-pulse"></div>
+            </div>
+          </div>
+        </Container>
+      </header>
+    );
+  }
 
   return (
     <header className="glass backdrop-blur-xl border-b border-white/20 sticky top-0 z-50 shadow-soft" role="banner">
@@ -51,12 +92,11 @@ export default async function Header() {
           
           <div className="flex items-center space-x-4">
             {headerSettings?.show_cta && headerSettings?.cta_text && (
-              <Link 
-                href={headerSettings.cta_url || '/signup'} 
-                className="hidden sm:inline-flex items-center px-8 py-3 rounded-2xl glass border border-white/30 text-slate-900 hover:text-slate-900 font-semibold hover:bg-white/40 hover:shadow-glow-hover hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 transition-all duration-300"
-              >
-                {headerSettings.cta_text}
-              </Link>
+              <WhatsAppButton 
+                variant="compact"
+                className="hidden sm:inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#94CE10]/80 via-[#94CE10]/90 to-[#557215]/80 backdrop-blur-xl border border-[#94CE10]/70 text-white font-semibold hover:bg-gradient-to-r hover:from-[#94CE10] hover:via-[#94CE10] hover:to-[#557215] hover:shadow-xl hover:shadow-[#94CE10]/50 hover:scale-105 hover:border-[#94CE10] focus:outline-none focus:ring-2 focus:ring-[#94CE10] focus:ring-offset-2 transition-all duration-300 group relative overflow-hidden"
+                text={headerSettings.cta_text}
+              />
             )}
             
             <MobileMenu navLinks={navLinks} headerSettings={headerSettings} />
