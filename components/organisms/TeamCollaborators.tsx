@@ -48,19 +48,19 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
       <Container>
         {/* Header */}
         <AnimatedSection animation="fadeInUp">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Nuestro Equipo
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
               Conoce a los expertos que hacen posible tu transformación digital. 
               Cada miembro aporta años de experiencia y pasión por la excelencia.
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-accent-700 to-green-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full"></div>
           </div>
         </AnimatedSection>
 
@@ -76,16 +76,16 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
                 delay={index * 100}
               >
                 <div 
-                  className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer ${
-                    selectedMember === member.id ? 'ring-4 ring-accent-300 shadow-2xl' : ''
+                  className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer border border-slate-200 ${
+                    selectedMember === member.id ? 'ring-4 ring-blue-300 shadow-2xl border-blue-200' : 'hover:border-slate-300'
                   }`}
                   onClick={() => setSelectedMember(selectedMember === member.id ? null : member.id)}
                 >
                   {/* Image Container */}
-                  <div className="relative h-64 bg-gradient-to-br from-accent-200 to-green-200 overflow-hidden">
+                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-indigo-100 overflow-hidden">
                     {/* Placeholder for team member photo */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 bg-gradient-to-br from-accent-700 to-green-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
+                      <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-lg">
                         {member.full_name.split(' ').map(n => n[0]).join('')}
                       </div>
                     </div>
@@ -99,7 +99,7 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
                         href={linkedinUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-accent-600 hover:text-white"
+                        className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-blue-600 hover:text-white"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -111,19 +111,19 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-secondary-900 mb-2">{member.full_name}</h3>
-                    <p className="text-accent-600 font-semibold mb-1">{member.role}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{member.full_name}</h3>
+                    <p className="text-blue-600 font-semibold mb-1">{member.role}</p>
                     
                     {/* Bio (expanded when selected) */}
                     <div className={`transition-all duration-300 ${selectedMember === member.id ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                      <p className="text-secondary-700 text-sm leading-relaxed mb-4">{member.bio}</p>
+                      <p className="text-slate-700 text-sm leading-relaxed mb-4">{member.bio}</p>
                       
                       {/* Skills */}
                       <div className="flex flex-wrap gap-2">
                         {member.skills.map((skill, idx) => (
                           <span 
                             key={idx}
-                            className="px-3 py-1 bg-gradient-to-r from-accent-200 to-green-200 text-accent-800 text-xs font-medium rounded-full"
+                            className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-xs font-medium rounded-full border border-blue-200"
                           >
                             {skill}
                           </span>
@@ -141,10 +141,10 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
         <AnimatedSection animation="fadeInUp" delay={400}>
           <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-secondary-900 mb-4">
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">
                 Nuestros Valores
               </h3>
-              <p className="text-secondary-600 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 Los principios que guían nuestro trabajo y definen nuestra cultura empresarial.
               </p>
             </div>
@@ -160,43 +160,15 @@ export default function TeamCollaborators({ collaborators }: TeamCollaboratorsPr
                     <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                       {value.icon}
                     </div>
-                    <h4 className="text-lg font-bold text-secondary-900 mb-3">
+                    <h4 className="text-lg font-bold text-slate-900 mb-3">
                       {value.title}
                     </h4>
-                    <p className="text-secondary-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {value.description}
                     </p>
                   </div>
                 </AnimatedSection>
               ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Modern CTA Section */}
-        <AnimatedSection animation="fadeInUp" delay={800}>
-          <div className="mt-20 text-center bg-gradient-mesh rounded-3xl p-12 md:p-16 text-white relative overflow-hidden shadow-strong">
-            {/* Background decorative elements */}
-            <div className="absolute inset-0">
-              <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-float"></div>
-              <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/15 rounded-full blur-xl animate-float-delayed"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <h3 className="text-heading-1 font-bold mb-6">
-                ¿Listo para trabajar con <span className="text-gradient-cosmic bg-white bg-clip-text">nosotros</span>?
-              </h3>
-              <p className="text-body-large mb-10 opacity-90 max-w-2xl mx-auto">
-                Nuestro equipo está esperando para hacer realidad tu visión digital y transformar tu marca.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="glass text-white font-bold px-10 py-5 rounded-2xl hover:shadow-glow-hover hover:scale-105 transition-all duration-300 border border-white/20">
-                  Conocer Más
-                </button>
-                <button className="bg-white text-purple-700 font-bold px-10 py-5 rounded-2xl hover:shadow-strong hover:scale-105 transition-all duration-300">
-                  Contactar Equipo
-                </button>
-              </div>
             </div>
           </div>
         </AnimatedSection>
