@@ -1,16 +1,24 @@
 <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Reliable gradients -->
-    <radialGradient id="bgGradient" cx="0.4" cy="0.3" r="1.2">
-      <stop offset="0%" style="stop-color:#94CE10;stop-opacity:0.15"/>
-      <stop offset="60%" style="stop-color:#557215;stop-opacity:0.08"/>
-      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.03"/>
+    <!-- Enhanced premium gradients -->
+    <radialGradient id="bgGradient" cx="0.4" cy="0.3" r="1.4">
+      <stop offset="0%" style="stop-color:#94CE10;stop-opacity:0.18"/>
+      <stop offset="35%" style="stop-color:#7fb50d;stop-opacity:0.12"/>
+      <stop offset="70%" style="stop-color:#557215;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:0.04"/>
     </radialGradient>
     
     <linearGradient id="robotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#94CE10"/>
-      <stop offset="50%" style="stop-color:#7fb50d"/>
+      <stop offset="25%" style="stop-color:#a8d626"/>
+      <stop offset="75%" style="stop-color:#7fb50d"/>
       <stop offset="100%" style="stop-color:#557215"/>
+    </linearGradient>
+    
+    <!-- New premium accent gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#94CE10"/>
+      <stop offset="100%" style="stop-color:#7fb50d"/>
     </linearGradient>
     
     <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -18,9 +26,10 @@
       <stop offset="100%" style="stop-color:#f1f5f9"/>
     </linearGradient>
     
-    <!-- Reliable filters -->
+    <!-- Enhanced premium filters -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feColorMatrix in="coloredBlur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.25 0"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -28,36 +37,64 @@
     </filter>
     
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.1)"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="rgba(0,0,0,0.12)"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="rgba(148,206,16,0.15)"/>
+    </filter>
+    
+    <!-- New premium text shadow -->
+    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.08)"/>
     </filter>
   </defs>
   
-  <!-- Background -->
+  <!-- Enhanced background with subtle pattern -->
   <rect width="500" height="500" fill="url(#bgGradient)"/>
   
-  <!-- Floating elements -->
-  <circle cx="80" cy="120" r="30" fill="#94CE10" opacity="0.1">
-    <animate attributeName="cy" values="120;100;120" dur="6s" repeatCount="indefinite"/>
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="0.8" fill="#94CE10" opacity="0.06">
+        <animate attributeName="opacity" values="0.03;0.12;0.03" dur="6s" repeatCount="indefinite"/>
+      </circle>
+    </pattern>
+  </defs>
+  <rect width="500" height="500" fill="url(#grid)"/>
+  
+  <!-- Enhanced floating elements -->
+  <circle cx="80" cy="120" r="32" fill="#94CE10" opacity="0.12" filter="url(#glow)">
+    <animate attributeName="cy" values="120;95;120" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="5s" repeatCount="indefinite"/>
   </circle>
-  <rect x="380" y="350" width="50" height="50" rx="10" fill="#557215" opacity="0.08" transform="rotate(15 405 375)">
-    <animateTransform attributeName="transform" type="rotate" values="15 405 375;25 405 375;15 405 375" dur="8s" repeatCount="indefinite"/>
+  <rect x="375" y="345" width="55" height="55" rx="12" fill="url(#accentGradient)" opacity="0.1" filter="url(#glow)" transform="rotate(15 402 372)">
+    <animateTransform attributeName="transform" type="rotate" values="15 402 372;30 402 372;15 402 372" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.06;0.15;0.06" dur="7s" repeatCount="indefinite"/>
   </rect>
   
-  <!-- Title with better contrast -->
-  <text x="250" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" text-anchor="middle" fill="#0f172a">
-    Asistente ChatBot
-  </text>
-  <text x="250" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" text-anchor="middle" fill="#374151">
-    Inteligencia Artificial Avanzada
-  </text>
+  <!-- Additional premium floating elements -->
+  <circle cx="420" cy="150" r="18" fill="#557215" opacity="0.08" filter="url(#glow)">
+    <animate attributeName="cy" values="150;130;150" dur="9s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="18;22;18" dur="6s" repeatCount="indefinite"/>
+  </circle>
   
-  <!-- Modern iPhone - MUCH BIGGER -->
-  <g transform="translate(260, 120)">
-    <!-- Phone shadow -->
-    <rect x="4" y="8" width="160" height="280" rx="36" fill="rgba(0,0,0,0.15)" filter="url(#shadow)"/>
+  <!-- Enhanced premium titles -->
+  <g filter="url(#textGlow)">
+    <text x="250" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" text-anchor="middle" fill="#0f172a">
+      Asistente ChatBot
+    </text>
+    <text x="250" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="#374151">
+      Inteligencia Artificial Avanzada
+    </text>
+  </g>
+  
+  <!-- Premium iPhone Pro Max -->
+  <g transform="translate(260, 130)">
+    <!-- Multi-layer shadows for depth -->
+    <rect x="6" y="12" width="160" height="280" rx="36" fill="rgba(0,0,0,0.08)" filter="url(#shadow)"/>
+    <rect x="4" y="8" width="160" height="280" rx="36" fill="rgba(148,206,16,0.05)" filter="url(#shadow)"/>
     
-    <!-- iPhone body -->
+    <!-- Premium iPhone body with enhanced gradient -->
     <rect x="0" y="0" width="160" height="280" rx="36" fill="url(#phoneGradient)" filter="url(#shadow)"/>
+    <rect x="2" y="2" width="156" height="276" rx="34" fill="rgba(255,255,255,0.08)" stroke="rgba(148,206,16,0.1)" stroke-width="0.5"/>
     <rect x="6" y="6" width="148" height="268" rx="30" fill="#000000"/>
     
     <!-- Screen -->
@@ -66,25 +103,29 @@
     <!-- Dynamic Island -->
     <rect x="54" y="10" width="52" height="12" rx="6" fill="#1a1a1a"/>
     
-    <!-- Chat interface -->
+    <!-- Enhanced chat interface -->
     <g transform="translate(20, 50)">
-      <!-- Header -->
-      <rect x="0" y="0" width="120" height="35" rx="8" fill="#94CE10" opacity="0.15"/>
-      <text x="60" y="24" font-family="system-ui" font-size="14" font-weight="700" text-anchor="middle" fill="#0f172a">ChatBot AI</text>
+      <!-- Premium header with gradient -->
+      <rect x="0" y="0" width="120" height="38" rx="10" fill="url(#accentGradient)" opacity="0.18"/>
+      <rect x="1" y="1" width="118" height="36" rx="9" fill="rgba(255,255,255,0.05)" stroke="rgba(148,206,16,0.2)" stroke-width="0.5"/>
+      <text x="60" y="26" font-family="system-ui" font-size="15" font-weight="800" text-anchor="middle" fill="#0f172a">ChatBot AI</text>
+      <circle cx="105" cy="19" r="4" fill="#94CE10" opacity="0.8">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      </circle>
       
-      <!-- Chat bubbles -->
-      <g transform="translate(0, 45)">
-        <!-- User message -->
-        <rect x="35" y="0" width="75" height="28" rx="14" fill="#94CE10"/>
-        <text x="72" y="18" font-family="system-ui" font-size="11" font-weight="600" text-anchor="middle" fill="white">¡Hola! 👋</text>
+      <!-- Premium chat bubbles -->
+      <g transform="translate(0, 48)">
+        <!-- User message with shadow -->
+        <rect x="35" y="0" width="78" height="30" rx="15" fill="url(#accentGradient)" filter="url(#glow)" opacity="0.95"/>
+        <text x="74" y="19" font-family="system-ui" font-size="12" font-weight="700" text-anchor="middle" fill="white">¡Hola! 👋</text>
         
-        <!-- Bot response -->
-        <rect x="10" y="35" width="95" height="28" rx="14" fill="#f8fafc" stroke="#94CE10" stroke-width="1"/>
-        <text x="57" y="53" font-family="system-ui" font-size="10" font-weight="500" text-anchor="middle" fill="#0f172a">¿Cómo puedo ayudarte?</text>
+        <!-- Bot response with enhanced styling -->
+        <rect x="8" y="38" width="98" height="30" rx="15" fill="#ffffff" stroke="url(#accentGradient)" stroke-width="1.5" filter="url(#glow)" opacity="0.98"/>
+        <text x="57" y="57" font-family="system-ui" font-size="11" font-weight="600" text-anchor="middle" fill="#0f172a">¿Cómo puedo ayudarte?</text>
         
-        <!-- User message -->
-        <rect x="20" y="70" width="90" height="28" rx="14" fill="#94CE10"/>
-        <text x="65" y="88" font-family="system-ui" font-size="10" font-weight="600" text-anchor="middle" fill="white">Información de servicios</text>
+        <!-- User message with gradient -->
+        <rect x="18" y="76" width="94" height="30" rx="15" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.92"/>
+        <text x="65" y="95" font-family="system-ui" font-size="10" font-weight="700" text-anchor="middle" fill="white">Información de servicios</text>
         
         <!-- Typing indicator -->
         <rect x="10" y="105" width="70" height="24" rx="12" fill="#f1f5f9" stroke="#94CE10" stroke-width="1"/>
@@ -108,25 +149,35 @@
     <text x="130" y="250" font-family="system-ui" font-size="11" font-weight="bold" text-anchor="middle" fill="white">→</text>
   </g>
   
-  <!-- Modern robot -->
-  <g transform="translate(120, 180)">
-    <!-- Robot body -->
-    <rect x="0" y="40" width="100" height="120" rx="20" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.95"/>
-    <rect x="3" y="43" width="94" height="114" rx="17" fill="rgba(255,255,255,0.1)"/>
+  <!-- Advanced AI robot -->
+  <g transform="translate(120, 190)">
+    <!-- Enhanced robot body with premium gradient -->
+    <rect x="0" y="40" width="100" height="120" rx="22" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.96"/>
+    <rect x="2" y="42" width="96" height="116" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+    <rect x="4" y="44" width="92" height="112" rx="18" fill="rgba(255,255,255,0.06)"/>
     
-    <!-- Robot head -->
-    <rect x="15" y="0" width="70" height="60" rx="15" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.95"/>
-    <rect x="18" y="3" width="64" height="54" rx="12" fill="rgba(255,255,255,0.1)"/>
+    <!-- Premium robot head -->
+    <rect x="15" y="0" width="70" height="60" rx="18" fill="url(#robotGradient)" filter="url(#glow)" opacity="0.96"/>
+    <rect x="17" y="2" width="66" height="56" rx="16" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+    <rect x="19" y="4" width="62" height="52" rx="14" fill="rgba(255,255,255,0.06)"/>
     
-    <!-- Eyes -->
-    <circle cx="35" cy="25" r="8" fill="#ffffff" filter="url(#glow)"/>
-    <circle cx="65" cy="25" r="8" fill="#ffffff" filter="url(#glow)"/>
-    <circle cx="35" cy="25" r="5" fill="#94CE10">
-      <animate attributeName="r" values="5;6;5" dur="3s" repeatCount="indefinite"/>
+    <!-- Advanced AI eyes -->
+    <circle cx="35" cy="25" r="9" fill="#ffffff" filter="url(#glow)" stroke="rgba(148,206,16,0.3)" stroke-width="1"/>
+    <circle cx="65" cy="25" r="9" fill="#ffffff" filter="url(#glow)" stroke="rgba(148,206,16,0.3)" stroke-width="1"/>
+    
+    <!-- Iris with sophisticated animation -->
+    <circle cx="35" cy="25" r="6" fill="url(#accentGradient)" opacity="0.9">
+      <animate attributeName="r" values="6;7;6" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="65" cy="25" r="5" fill="#94CE10">
-      <animate attributeName="r" values="5;6;5" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    <circle cx="65" cy="25" r="6" fill="url(#accentGradient)" opacity="0.9">
+      <animate attributeName="r" values="6;7;6" dur="4s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" begin="0.5s" repeatCount="indefinite"/>
     </circle>
+    
+    <!-- Eye highlights -->
+    <circle cx="37" cy="23" r="2" fill="#ffffff" opacity="0.8"/>
+    <circle cx="67" cy="23" r="2" fill="#ffffff" opacity="0.8"/>
     
     <!-- Interface panel -->
     <rect x="20" y="60" width="60" height="40" rx="8" fill="rgba(255,255,255,0.2)"/>
@@ -148,19 +199,32 @@
     </circle>
   </g>
   
-  <!-- Connection line -->
-  <path d="M220 240 Q240 235 260 230" stroke="url(#robotGradient)" stroke-width="4" fill="none" opacity="0.7" stroke-dasharray="15,8">
-    <animate attributeName="stroke-dashoffset" values="0;23" dur="2s" repeatCount="indefinite"/>
-  </path>
+  <!-- Enhanced AI connection -->
+  <g opacity="0.8">
+    <path d="M220 250 Q240 245 260 240" stroke="url(#accentGradient)" stroke-width="3" fill="none" opacity="0.8" stroke-dasharray="12,6" filter="url(#glow)">
+      <animate attributeName="stroke-dashoffset" values="0;18" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M225 255 Q245 250 265 245" stroke="#94CE10" stroke-width="1.5" fill="none" opacity="0.6" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" values="0;12" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
   
-  <!-- Floating particles -->
-  <circle cx="60" cy="280" r="8" fill="#94CE10" opacity="0.3">
-    <animate attributeName="cy" values="280;260;280" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/>
+  <!-- Enhanced floating particles -->
+  <circle cx="60" cy="280" r="10" fill="url(#accentGradient)" opacity="0.35" filter="url(#glow)">
+    <animate attributeName="cy" values="280;255;280" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="10;12;10" dur="3s" repeatCount="indefinite"/>
   </circle>
   
-  <circle cx="440" cy="300" r="6" fill="#557215" opacity="0.25">
-    <animate attributeName="cy" values="300;320;300" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.15;0.5;0.15" dur="4s" repeatCount="indefinite"/>
+  <circle cx="440" cy="300" r="8" fill="url(#robotGradient)" opacity="0.3" filter="url(#glow)">
+    <animate attributeName="cy" values="300;325;300" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.6;0.15" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="8;10;8" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- New premium particles -->
+  <circle cx="350" cy="200" r="6" fill="#94CE10" opacity="0.25" filter="url(#glow)">
+    <animate attributeName="cy" values="200;180;200" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="6s" repeatCount="indefinite"/>
   </circle>
 </svg>
