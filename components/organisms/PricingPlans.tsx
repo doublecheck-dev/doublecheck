@@ -47,8 +47,8 @@ export default function PricingPlans({ plans }: { plans: Plan[] }) {
           onToggle={setBillingPeriod} 
         />
 
-        {/* Plans Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-16 mt-16">
+        {/* Plans Grid - Optimized for pricing display */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-6 mb-16 mt-16 max-w-7xl mx-auto">
           {plans.map((plan, index) => {
             const displayPrice = billingPeriod === 'annually' ? plan.price * 0.8 : plan.price;
 
@@ -57,7 +57,7 @@ export default function PricingPlans({ plans }: { plans: Plan[] }) {
                 key={plan.id} 
                 animation="fadeInUp" 
                 delay={index * 150}
-                className={`${plan.slug === 'digital-pro-max' ? 'lg:col-span-3 xl:col-span-1' : ''}`}
+                className="h-full flex"
               >
                 <PlanCard
                   plan={plan}

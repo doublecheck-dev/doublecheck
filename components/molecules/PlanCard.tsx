@@ -73,7 +73,9 @@ export default function PlanCard({
 
   return (
     <div 
-      className={`relative glass rounded-3xl transition-all duration-500 cursor-pointer group transform-gpu backdrop-blur-lg ${
+      className={`relative glass rounded-3xl transition-all duration-500 cursor-pointer group transform-gpu backdrop-blur-lg w-full flex flex-col ${
+        isPopular ? 'mt-6' : '' // Add top margin for popular cards to accommodate badge
+      } ${
         isPopular 
           ? 'border-2 border-white/30 shadow-glow bg-gradient-mesh/10 scale-105' 
           : isSelected
@@ -90,8 +92,8 @@ export default function PlanCard({
     >
       {/* Popular Badge */}
       {isPopular && (
-        <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="bg-gradient-cosmic text-white px-8 py-3 rounded-full text-sm font-bold shadow-glow animate-pulse-soft border border-white/30">
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="bg-gradient-cosmic text-white px-6 py-2 rounded-full text-sm font-bold shadow-glow animate-pulse-soft border border-white/30 whitespace-nowrap">
             ⭐ MÁS POPULAR
           </div>
         </div>
@@ -107,16 +109,16 @@ export default function PlanCard({
         <div className="absolute inset-0 bg-gradient-ocean rounded-3xl opacity-10 blur-xl -z-10 transition-opacity duration-300"></div>
       )}
 
-      <div className="p-8 relative">
+      <div className={`${isPopular ? 'p-4 pt-6' : 'p-4'} relative flex flex-col h-full`}>
         {/* Plan Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-4 flex-shrink-0">
           {/* Icon */}
-          <div className={`inline-flex items-center justify-center w-20 h-20 rounded-3xl mb-4 transition-all duration-300 ${
+          <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-3 transition-all duration-300 ${
             isHovered || isPopular
               ? `bg-gradient-to-br ${getPlanColor(plan.title, isPopular)} shadow-lg`
               : 'bg-gradient-to-br from-gray-100 to-gray-200'
           }`}>
-            <span className={`text-3xl transition-all duration-300 ${
+            <span className={`text-xl transition-all duration-300 ${
               isHovered || isPopular ? 'text-white scale-110' : 'text-gray-600'
             }`}>
               {getPlanIcon(plan.title)}
@@ -124,61 +126,61 @@ export default function PlanCard({
           </div>
 
           {/* Plan Title */}
-          <h3 className="text-heading-2 font-bold text-white mb-2 transition-colors duration-300 group-hover:text-accent-200">
+          <h3 className="text-base font-bold text-white mb-2 transition-colors duration-300 group-hover:text-accent-200 leading-tight">
             {plan.title}
           </h3>
 
           {/* Price Display */}
-          <div className="mb-6">
-            <div className="flex items-baseline justify-center mb-2">
-              <span className={`text-display-2 font-bold transition-colors duration-300 ${
+          <div className="mb-4">
+            <div className="flex items-baseline justify-center mb-1">
+              <span className={`text-2xl font-bold transition-colors duration-300 ${
                 isPopular ? 'text-gradient-cosmic bg-gradient-cosmic bg-clip-text' : 'text-white group-hover:text-gradient-cosmic group-hover:bg-gradient-cosmic group-hover:bg-clip-text'
               }`}>
                 {formatPrice(displayPrice, plan.currency)}
               </span>
-              <span className="text-white/80 ml-2 text-body-large">/mes</span>
+              <span className="text-white/80 ml-1 text-sm">/mes</span>
             </div>
             
             {billingPeriod === 'annually' && (
-              <div className="text-body-small text-green-300 font-semibold animate-pulse-soft">
-                🎉 Ahorras {formatPrice(plan.price * 0.2, plan.currency)} por mes
+              <div className="text-xs text-green-300 font-semibold animate-pulse-soft mb-1">
+                🎉 Ahorras {formatPrice(plan.price * 0.2, plan.currency)}/mes
               </div>
             )}
             
-            <span className="text-body-small text-white/70 font-medium">
-              {plan.currency} • Facturación {billingPeriod === 'monthly' ? 'mensual' : 'anual'}
+            <span className="text-xs text-white/70 font-medium">
+              {plan.currency} • {billingPeriod === 'monthly' ? 'Mensual' : 'Anual'}
             </span>
           </div>
 
           {/* Descriptions */}
-          <div className="space-y-3">
-            <p className="text-body-large font-semibold text-white leading-tight">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-white leading-tight">
               {plan.metadata?.description}
             </p>
-            <p className="text-body-small text-white/80 leading-relaxed">
+            <p className="text-xs text-white/80 leading-relaxed">
               {plan.metadata?.subtitle}
             </p>
           </div>
         </div>
 
         {/* Features List */}
-        <div className="space-y-4 mb-8">
+        <div className="space-y-2 mb-4 flex-grow">
           {plan.features.map((feature, idx) => (
             <div 
               key={idx} 
-              className="flex items-start space-x-3 group/feature opacity-0 animate-fadeInUp"
+              className="flex items-start space-x-2 group/feature opacity-0 animate-fadeInUp"
               style={{ animationDelay: `${(index * 150) + (idx * 50)}ms`, animationFillMode: 'forwards' }}
             >
-              <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 transition-all duration-300 ${
+              <div className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 transition-all duration-300 ${
                 isPopular || isHovered
                   ? 'bg-gradient-to-r from-accent-600 to-green-600 scale-110' 
                   : 'bg-gradient-to-r from-gray-500 to-gray-600 group-hover/feature:from-accent-600 group-hover/feature:to-green-600 group-hover/feature:scale-110'
               }`}>
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <span className="text-white/90 font-medium leading-relaxed group-hover/feature:text-white transition-colors duration-300">
+              <span className="text-xs text-white/90 font-medium leading-relaxed group-hover/feature:text-white transition-colors duration-300">
                 {feature}
               </span>
             </div>
@@ -186,9 +188,10 @@ export default function PlanCard({
         </div>
 
         {/* CTA Button */}
+        <div className="mt-auto">
         <Button
           variant={isPopular ? "primary" : "secondary"}
-          className={`w-full font-bold py-4 text-body-large transition-all duration-300 relative overflow-hidden ${
+          className={`w-full font-bold py-3 text-sm transition-all duration-300 relative overflow-hidden ${
             isPopular 
               ? 'bg-gradient-cosmic hover:shadow-glow-hover text-white shadow-glow hover:scale-105' 
               : 'glass border-2 border-white/30 text-white hover:bg-gradient-cosmic hover:border-transparent hover:shadow-glow hover:scale-105'
@@ -211,13 +214,14 @@ export default function PlanCard({
 
         {/* Value indicator */}
         {billingPeriod === 'annually' && (
-          <div className="mt-4 text-center">
-            <span className="inline-flex items-center space-x-1 text-caption text-green-300 glass px-3 py-1 rounded-full font-semibold border border-green-300/30">
+          <div className="mt-2 text-center">
+            <span className="inline-flex items-center space-x-1 text-xs text-green-300 glass px-2 py-1 rounded-full font-semibold border border-green-300/30">
               <span>💰</span>
               <span>Mejor valor anual</span>
             </span>
           </div>
         )}
+        </div>
       </div>
 
       {/* Decorative floating elements */}
