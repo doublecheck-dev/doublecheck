@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Container from "@components/atoms/Container";
 import Button from "@components/atoms/Button";
+import WhatsAppCTA from "@components/organisms/WhatsAppCTA";
 
 export default function CallToAction() {
   const [isHovered, setIsHovered] = useState(false);
@@ -79,14 +80,15 @@ export default function CallToAction() {
               >
                 Sobre Nosotros
               </Button>
-              <Button 
-                variant="secondary" 
-                className={`bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white hover:bg-white hover:text-slate-900 font-semibold px-10 py-5 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                  isHovered ? 'bg-white/15 border-white/50' : ''
-                }`}
-              >
-                Contáctanos
-              </Button>
+              <div className="w-full sm:w-auto">
+                <WhatsAppCTA 
+                  variant="secondary" 
+                  text="Contáctanos por WhatsApp"
+                  className={`transition-all duration-300 hover:scale-105 ${
+                    isHovered ? 'scale-105' : ''
+                  }`}
+                />
+              </div>
             </div>
             
             {/* Trust indicators */}

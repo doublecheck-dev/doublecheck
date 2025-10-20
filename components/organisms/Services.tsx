@@ -5,6 +5,7 @@ import Container from "../atoms/Container";
 import AnimatedSection from "../atoms/AnimatedSection";
 import ServiceCard from "../molecules/ServiceCard";
 import { SkeletonServices } from "../atoms/SkeletonCard";
+import WhatsAppButton from "../molecules/WhatsAppButton";
 
 // Enhanced service data with features
 const enhancedServices = [
@@ -114,13 +115,12 @@ export default function Services({ items }: { items: Array<any> }) {
           <p className="text-lg text-slate-600 mb-8 font-medium">
             ¿No encuentras exactamente lo que buscas?
           </p>
-          <a
-            href="#contacto"
-            className="inline-flex items-center px-10 py-5 bg-gradient-cosmic text-white font-semibold rounded-2xl hover:shadow-glow-hover hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 shadow-strong"
-          >
-            Solicitar Consulta Personalizada
-            <span className="ml-3 transform transition-transform group-hover:translate-x-1">→</span>
-          </a>
+          <WhatsAppButton 
+            variant="compact"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-cosmic hover:bg-gradient-cosmic text-white font-semibold rounded-2xl hover:shadow-glow-hover hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-purple-300 shadow-strong"
+            text="Solicitar Consulta Personalizada"
+            showArrow={true}
+          />
         </AnimatedSection>
       </Container>
     </section>
