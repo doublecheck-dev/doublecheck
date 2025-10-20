@@ -4,6 +4,7 @@ import PricingPlans from '@components/organisms/PricingPlans';
 import TeamCollaborators from '@components/organisms/TeamCollaborators';
 import ContactSection from '@components/organisms/ContactSection';
 import CallToAction from '@components/organisms/CallToAction';
+import WhatsAppQR from '@components/atoms/WhatsAppQR';
 import { supabase, fetchImageById, fetchPlans, fetchCollaborators } from '@lib/supabaseClient';
 
 export default async function HomeTemplate({ data }: { data: any }) {
@@ -44,6 +45,7 @@ export default async function HomeTemplate({ data }: { data: any }) {
       <TeamCollaborators collaborators={collaborators || []} />
       <ContactSection />
       <CallToAction />
+      <WhatsAppQR />
     </>
   );
 }
