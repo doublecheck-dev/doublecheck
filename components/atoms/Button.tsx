@@ -27,7 +27,7 @@ export default function Button({
   const variantClasses = {
     primary: 'bg-primary text-white hover:bg-primary-800 focus:ring-primary-300 shadow-lg hover:shadow-xl active:scale-95 border border-primary-700',
     secondary: 'bg-transparent border-2 border-secondary-700 text-secondary-800 hover:bg-secondary-800 hover:text-white focus:ring-secondary-300 active:scale-95',
-    accent: 'bg-green-600 text-white hover:bg-accent-800 focus:ring-accent-300 shadow-lg hover:shadow-xl active:scale-95 border border-accent-800'
+    accent: 'bg-accent-700 text-white hover:bg-accent-800 focus:ring-accent-300 shadow-lg hover:shadow-xl active:scale-95 border border-accent-800'
   };
 
   const handleMouseDown = () => setIsPressed(true);
