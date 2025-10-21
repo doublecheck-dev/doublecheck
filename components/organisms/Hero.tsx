@@ -42,11 +42,11 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
 
   return (
     <section className="relative min-h-screen flex items-center py-24 bg-gradient-mesh-brand overflow-hidden">
-  {/* Animated background elements - brand palette with lower opacity */}
-  <div className="absolute inset-0 bg-gradient-animated-brand opacity-40"></div>
+  {/* Animated background elements - Static on mobile for performance */}
+  <div className="absolute inset-0 bg-gradient-mesh-brand md:bg-gradient-animated-brand opacity-40"></div>
       
-      {/* Floating geometric shapes - Reduced for LCP */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating geometric shapes - Hidden on mobile for performance */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-cosmic rounded-3xl opacity-20 animate-float blur-sm"></div>
         <div className="absolute bottom-40 right-20 w-24 h-24 bg-gradient-sunset rounded-full opacity-30 animate-float-delayed blur-sm"></div>
       </div>
