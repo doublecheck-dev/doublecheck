@@ -66,19 +66,21 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
         </div>
       </div>
       
-      {/* Floating particles - Reduced for better LCP */}
-      {[...Array(8)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse shadow-glow"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${3 + Math.random() * 2}s`
-          }}
-        />
-      ))}
+      {/* Floating particles - Hidden on mobile for performance */}
+      <div className="hidden md:block">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse shadow-glow"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
       
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
