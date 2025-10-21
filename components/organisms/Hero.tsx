@@ -153,10 +153,10 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
           {heroImage && (
             <AnimatedSection animation="fadeInRight" delay={400}>
               <div className="flex justify-center relative">
-                <div className="relative w-full max-w-lg h-[500px] group">
-                  {/* Enhanced decorative elements (brand) */}
-                  <div className="absolute -inset-6 bg-gradient-brand rounded-3xl blur-2xl opacity-25 group-hover:opacity-45 transition-all duration-700 animate-glow-pulse"></div>
-                  <div className="absolute -inset-4 bg-gradient-brand-soft rounded-3xl blur-xl opacity-20 group-hover:opacity-35 transition-all duration-500"></div>
+                <div className="relative w-full max-w-lg h-[350px] sm:h-[450px] md:h-[500px] group">
+                  {/* Enhanced decorative elements (brand) - Simplified on mobile */}
+                  <div className="hidden md:block absolute -inset-6 bg-gradient-brand rounded-3xl blur-2xl opacity-25 group-hover:opacity-45 transition-all duration-700 animate-glow-pulse"></div>
+                  <div className="absolute -inset-4 bg-gradient-brand-soft rounded-3xl blur-xl opacity-10 md:opacity-20 md:group-hover:opacity-35 md:transition-all md:duration-500"></div>
                   
                   {/* Optimized Image with Next.js Image component for better LCP */}
                   <div className="absolute inset-0 rounded-3xl overflow-hidden z-10">
@@ -165,8 +165,8 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
                       alt={heading ?? 'DoubleCheck Hero'}
                       fill
                       priority
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
-                      className="object-cover rounded-3xl glass group-hover:scale-105 transition-all duration-700"
+                      sizes="(max-width: 640px) 85vw, (max-width: 768px) 75vw, (max-width: 1024px) 50vw, 500px"
+                      className="object-cover rounded-3xl glass md:group-hover:scale-105 md:transition-all md:duration-700"
                       quality={90}
                     />
                   </div>
