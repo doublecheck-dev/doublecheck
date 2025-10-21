@@ -26,6 +26,7 @@ export default function Footer() {
                     alt="DoubleCheck Logo"
                     fill
                     sizes="80px"
+                    loading="lazy"
                     className="object-contain relative z-10"
                   />
                 </div>

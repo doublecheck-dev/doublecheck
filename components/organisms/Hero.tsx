@@ -45,14 +45,13 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
   {/* Animated background elements - brand palette with lower opacity */}
   <div className="absolute inset-0 bg-gradient-animated-brand opacity-40"></div>
       
-      {/* Floating geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Floating geometric shapes - Reduced for LCP */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-cosmic rounded-3xl opacity-20 animate-float blur-sm"></div>
         <div className="absolute bottom-40 right-20 w-24 h-24 bg-gradient-sunset rounded-full opacity-30 animate-float-delayed blur-sm"></div>
-        <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-ocean rounded-2xl opacity-25 animate-bounce blur-sm"></div>
       </div>
       
-      {/* Subtle logo watermark */}
+      {/* Subtle logo watermark - deferred for LCP */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
         <div className="relative w-[28rem] h-[28rem]">
           <Image
@@ -60,14 +59,15 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
             alt=""
             fill
             sizes="448px"
+            loading="lazy"
             className="object-contain"
             aria-hidden="true"
           />
         </div>
       </div>
       
-      {/* Floating particles */}
-      {[...Array(15)].map((_, i) => (
+      {/* Floating particles - Reduced for better LCP */}
+      {[...Array(8)].map((_, i) => (
         <div
           key={i}
           className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse shadow-glow"
@@ -158,16 +158,18 @@ export default function Hero({ heading, subheading, image }: { heading?: string;
                   <div className="absolute -inset-6 bg-gradient-brand rounded-3xl blur-2xl opacity-25 group-hover:opacity-45 transition-all duration-700 animate-glow-pulse"></div>
                   <div className="absolute -inset-4 bg-gradient-brand-soft rounded-3xl blur-xl opacity-20 group-hover:opacity-35 transition-all duration-500"></div>
                   
-                  {/* Consistent picture element for both cases */}
-                  <picture className="absolute inset-0 rounded-3xl overflow-hidden z-10">
-                    
-                    <img
+                  {/* Optimized Image with Next.js Image component for better LCP */}
+                  <div className="absolute inset-0 rounded-3xl overflow-hidden z-10">
+                    <Image
                       src={heroImage}
                       alt={heading ?? 'DoubleCheck Hero'}
-                      className="w-full h-full object-cover rounded-3xl glass group-hover:scale-105 transition-all duration-700"
-                      loading="eager"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
+                      className="object-cover rounded-3xl glass group-hover:scale-105 transition-all duration-700"
+                      quality={90}
                     />
-                  </picture>
+                  </div>
                   
                   {/* Modern floating badge */}
                   <div className="absolute -top-6 -right-6 bg-gradient-brand text-white px-6 py-3 rounded-2xl text-sm font-bold shadow-brand-glow animate-bounce-in z-20 glass">

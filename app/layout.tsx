@@ -10,7 +10,6 @@ export const metadata = {
     default: 'DoubleCheck - Branding y Marketing Digital',
     template: '%s | DoubleCheck'
   },
-  description: 'Creamos brandings increíbles, diseño web profesional y estrategias de marketing digital que impulsan tu negocio. Transformamos tu visión en una identidad poderosa.',
   keywords: ['branding', 'diseño web', 'marketing digital', 'software', 'Colombia'],
   authors: [{ name: 'DoubleCheck Tech' }],
   creator: 'DoubleCheck',
@@ -54,8 +53,28 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={process.env.NEXT_PUBLIC_DEFAULT_LOCALE || 'es'} className="scroll-smooth">
       <head>
+        {/* Critical resource hints for LCP optimization */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        
+        {/* Preload hero image for faster LCP */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/illustrations/chatbot-hero.svg"
+          type="image/svg+xml"
+        />
+        
+        {/* Preload critical fonts with font-display: swap */}
+        <link 
+          rel="preload" 
+          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous"
+        />
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="theme-color" content="#2563eb" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
