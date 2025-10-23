@@ -32,14 +32,15 @@ export default function FloatingWhatsApp() {
   return (
     <>
       {/* Modern Floating WhatsApp Button with Animations */}
-      <div className={`fixed bottom-6 right-6 z-50 transition-all duration-1000 ${
-        isVisible 
-          ? 'translate-x-0 translate-y-0 opacity-100 scale-100' 
-          : 'translate-x-full translate-y-full opacity-0 scale-50'
-      }`}>
+      <div className='flex justify-end px-4 sticky top-0 z-50' >
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          className={`fixed bottom-6  transition-all duration-1000 overflow-visible ${
+        isVisible 
+          ? 'translate-x-0 translate-y-0 opacity-100 scale-100' 
+          : 'translate-x-full translate-y-full opacity-0 scale-50'
+      }`}
         >
           <WhatsAppButton
             variant="floating"

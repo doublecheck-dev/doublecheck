@@ -40,10 +40,10 @@ export default function WhatsAppButton({
   // Floating variant (for the floating button)
   if (variant === 'floating') {
     return (
-      <div className="relative group">
-        {/* Enhanced glow effect with animations */}
+      <div className="relative group overflow-visible">
+        {/* Enhanced glow effect with animations - constrained scale */}
         <div className={`absolute inset-0 bg-gradient-to-r from-green-400 via-emerald-400 to-green-500 rounded-2xl blur-xl opacity-30 transition-all duration-700 animate-pulse ${
-          isHovered ? 'scale-150 opacity-60' : isPulsing ? 'scale-125 opacity-50 animate-ping' : 'scale-100'
+          isHovered ? 'scale-125 opacity-60' : isPulsing ? 'scale-110 opacity-50 animate-ping' : 'scale-100'
         }`}></div>
         
         {/* Floating animation wrapper */}
@@ -94,14 +94,14 @@ export default function WhatsAppButton({
         
         {/* Enhanced tooltip with animation */}
         {showTooltip && (
-          <div className={`absolute bottom-full right-0 mb-3 px-4 py-2 bg-slate-800/90 backdrop-blur-sm text-white text-sm rounded-xl transition-all duration-500 whitespace-nowrap transform ${
+          <div className={`absolute bottom-full right-0 mb-3 px-4 py-2 bg-slate-800/90 backdrop-blur-sm text-white text-sm rounded-xl transition-all duration-500 max-w-[200px] transform ${
             isHovered 
               ? 'opacity-100 scale-100 translate-y-0' 
               : 'opacity-0 scale-95 translate-y-2'
           }`}>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              Contáctanos por WhatsApp
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
+              <span className="break-words">Contáctanos por WhatsApp</span>
             </div>
             <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-slate-800/90"></div>
           </div>
