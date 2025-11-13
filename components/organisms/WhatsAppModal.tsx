@@ -14,10 +14,11 @@ export default function WhatsAppModal({ isOpen, onClose }: WhatsAppModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Enhanced Backdrop with animation */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 max-md:translate-[-160px] scale-90">
+        {/* <div className="flex md:flex-col max-md:items-center max-md:justify-start max-md:px-4 max-md:py-6 max-md:gap-4"> */}
+              {/* Enhanced Backdrop with animation */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/60 to-indigo-900/80 backdrop-blur-md animate-fadeIn"
+        className="absolute inset-0 animate-fadeIn"
         onClick={onClose}
       />
       
@@ -62,6 +63,10 @@ export default function WhatsAppModal({ isOpen, onClose }: WhatsAppModalProps) {
           </div>
         </div>
       </div>
-    </div>
+
+
+      </div>
+
+    // </div>
   );
 }
