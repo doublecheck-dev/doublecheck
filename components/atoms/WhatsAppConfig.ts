@@ -1,6 +1,6 @@
 // WhatsApp contact configuration
 export const WHATSAPP_CONFIG = {
-  number: "+573122394136", // Replace with actual number
+  number: "+573126853970", // Replace with actual number
   defaultMessage: "¡Hola! Me interesa conocer más sobre los servicios de DoubleCheck. ¿Podrían brindarme información?",
   
   // Generate WhatsApp URL with pre-filled message
